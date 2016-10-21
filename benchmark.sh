@@ -1,5 +1,6 @@
 #!/bin/sh
-rebench -d --without-nice codespeed.conf ruby-others
+PARAMS="-d --without-nice --commit-id='$CI_BUILD_REF' --environment='Infinity Ubuntu' --project=AWFY --branch='$CI_BUILD_REF_NAME'"
+rebench $PARAMS codespeed.conf ruby-others
 exit 0
 # rebench -d --without-nice codespeed.conf steady-java
 # rebench -d --without-nice codespeed.conf steady-crystal
