@@ -13,5 +13,5 @@ benchmark_job:
   stage: benchmark
   tags: [benchmarks, infinity]
   script:
-    - awfy/implementations/setup.sh
+    - (cd awfy && ./implementations/setup.sh)
     - ./benchmark.sh
