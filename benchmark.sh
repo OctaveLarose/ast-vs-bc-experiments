@@ -1,5 +1,6 @@
 #!/bin/bash
-PARAMS=("-d" "--without-nice" "--commit-id=\"$CI_BUILD_REF\"" "--environment=Infinity Ubuntu" "--project=AWFY" "--branch=\"$CI_BUILD_REF_NAME\"")
+AWFY_REF=`(cd awfy && git rev-parse HEAD)`
+PARAMS=("-d" "--without-nice" "--commit-id=\"$AWFY_REF\"" "--environment=Infinity Ubuntu" "--project=AWFY" "--branch=\"$CI_BUILD_REF_NAME\"")
 rebench "${PARAMS[@]}" codespeed.conf ruby-others vm:MRI23
 exit 0
 # rebench -d --without-nice codespeed.conf steady-java
