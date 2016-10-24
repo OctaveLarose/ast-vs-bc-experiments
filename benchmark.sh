@@ -9,8 +9,11 @@ PARAMS=("-d" "--without-nice" "--commit-id=$CI_BUILD_REF" "--environment=Infinit
 # rebench "${PARAMS[@]}" codespeed.conf all vm:SOMns
 # rebench "${PARAMS[@]}" codespeed.conf all
 # rebench "${PARAMS[@]}" codespeed.conf all vm:Crystal
-rebench "${PARAMS[@]}" codespeed.conf all vm:Java8U66
-rebench "${PARAMS[@]}" codespeed.conf all vm:Node
+# rebench "${PARAMS[@]}" codespeed.conf all vm:Java8U66
+# rebench "${PARAMS[@]}" codespeed.conf all vm:Node
+rebench "${PARAMS[@]}" codespeed.conf all vm:JavaInt
+rebench "${PARAMS[@]}" codespeed.conf all vm:SOMnsInt
+rebench "${PARAMS[@]}" codespeed.conf all vm:NodeTurboFan
 
 # rebench -d --without-nice codespeed.conf steady-java
 # rebench -d --without-nice codespeed.conf steady-crystal
