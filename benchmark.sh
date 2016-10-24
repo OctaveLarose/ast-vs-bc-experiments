@@ -8,7 +8,9 @@ PARAMS=("-d" "--without-nice" "--commit-id=$CI_BUILD_REF" "--environment=Infinit
 # rebench "${PARAMS[@]}" codespeed.conf all vm:TruffleSOM vm:TruffleSOM-TOM
 # rebench "${PARAMS[@]}" codespeed.conf all vm:SOMns
 # rebench "${PARAMS[@]}" codespeed.conf all
-rebench "${PARAMS[@]}" codespeed.conf all vm:Crystal
+# rebench "${PARAMS[@]}" codespeed.conf all vm:Crystal
+rebench "${PARAMS[@]}" codespeed.conf all vm:Java8U66
+rebench "${PARAMS[@]}" codespeed.conf all vm:Node
 
 # rebench -d --without-nice codespeed.conf steady-java
 # rebench -d --without-nice codespeed.conf steady-crystal
