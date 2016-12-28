@@ -2,11 +2,16 @@
 #AWFY_REF=`(cd awfy && git rev-parse HEAD)`
 # CI_BUILD_REF=2cd905bd67a061705eaf8098832f49886d5c9de2
 PARAMS=("-d" "--without-nice" "--commit-id=$CI_BUILD_REF" "--environment=Infinity Ubuntu" "--project=AWFY" "--branch=$CI_BUILD_REF_NAME")
+git submodule update --recursive
 
-rebench "${PARAMS[@]}" codespeed.conf all vm:Node
-rebench "${PARAMS[@]}" codespeed.conf all vm:NodeTurboFan
-rebench "${PARAMS[@]}" codespeed.conf steady-java
-rebench "${PARAMS[@]}" codespeed.conf steady-crystal
+# (cd awfy && ./implementations/setup.sh)
+
+# rebench "${PARAMS[@]}" codespeed.conf all vm:Node
+# rebench "${PARAMS[@]}" codespeed.conf all vm:NodeTurboFan
+# rebench "${PARAMS[@]}" codespeed.conf steady-java
+# rebench "${PARAMS[@]}" codespeed.conf steady-crystal
+
+rebench "${PARAMS[@]}" codespeed.conf lua
 
 # rebench "${PARAMS[@]}" codespeed.conf all vm:GraalBasic vm:GraalC2
 # rebench "${PARAMS[@]}" codespeed.conf all vm:JRubyGraal vm:JRubyTruffle
