@@ -11,7 +11,7 @@ git submodule update --recursive
 # rebench "${PARAMS[@]}" codespeed.conf steady-java
 # rebench "${PARAMS[@]}" codespeed.conf steady-crystal
 
-rebench "${PARAMS[@]}" codespeed.conf lua
+# rebench "${PARAMS[@]}" codespeed.conf lua
 
 # rebench "${PARAMS[@]}" codespeed.conf all vm:GraalBasic vm:GraalC2
 # rebench "${PARAMS[@]}" codespeed.conf all vm:JRubyGraal vm:JRubyTruffle
@@ -22,6 +22,7 @@ rebench "${PARAMS[@]}" codespeed.conf lua
 # rebench "${PARAMS[@]}" codespeed.conf all vm:Java8U66
 # rebench "${PARAMS[@]}" codespeed.conf all vm:JavaInt
 # rebench "${PARAMS[@]}" codespeed.conf all vm:SOMnsInt
+rebench "${PARAMS[@]}" codespeed.conf all vm:SOMns
 
 # rebench -d --without-nice codespeed.conf steady-js
 # rebench -d --without-nice codespeed.conf ruby-others
