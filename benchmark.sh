@@ -19,19 +19,13 @@ git submodule update --recursive
 # rebench "${PARAMS[@]}" codespeed.conf all vm:SOMns
 # rebench "${PARAMS[@]}" codespeed.conf all
 # rebench "${PARAMS[@]}" codespeed.conf all vm:Crystal
-# rebench "${PARAMS[@]}" codespeed.conf all vm:Java8U66
-# rebench "${PARAMS[@]}" codespeed.conf all vm:JavaInt
 # rebench "${PARAMS[@]}" codespeed.conf all vm:SOMnsInt
 # rebench "${PARAMS[@]}" codespeed.conf all vm:SOMns
 
-rebench "${PARAMS[@]}" codespeed.conf ruby-others vm:Topaz
+rebench "${PARAMS[@]}" codespeed.conf steady-js vm:Node vm:NodeTurboFan
+rebench "${PARAMS[@]}" codespeed.conf all vm:Java8U66
+rebench "${PARAMS[@]}" codespeed.conf all vm:JavaInt
 
-# rebench -d --without-nice codespeed.conf steady-js
-# rebench -d --without-nice codespeed.conf ruby-others
-# rebench -d --without-nice codespeed.conf steady-ruby
-# rebench -d --without-nice codespeed.conf steady-som
-# rebench -d --without-nice codespeed.conf pharo
-# rebench -d --without-nice codespeed.conf all
 
 DATA_ROOT=~/benchmark-results/are-we-fast-yet
 
