@@ -24,8 +24,7 @@ git submodule update --recursive
 # rebench "${PARAMS[@]}" codespeed.conf all vm:SOMnsInt
 # rebench "${PARAMS[@]}" codespeed.conf all vm:SOMns
 
-rebench "${PARAMS[@]}" codespeed.conf steady-ruby vm:Topaz
-rebench "${PARAMS[@]}" codespeed.conf ruby-others vm:MRI23
+rebench "${PARAMS[@]}" codespeed.conf ruby-others vm:Topaz
 
 # rebench -d --without-nice codespeed.conf steady-js
 # rebench -d --without-nice codespeed.conf ruby-others
