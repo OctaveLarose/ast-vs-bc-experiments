@@ -22,7 +22,7 @@ rebench "${PARAMS[@]}" codespeed.conf all vm:Crystal
 # rebench "${PARAMS[@]}" codespeed.conf all vm:SOMnsInt
 # rebench "${PARAMS[@]}" codespeed.conf all vm:SOMns
 
-rebench "${PARAMS[@]}" codespeed.conf steady-js vm:Node vm:NodeTurboFan
+# rebench "${PARAMS[@]}" codespeed.conf steady-js vm:Node vm:NodeTurboFan
 # rebench "${PARAMS[@]}" codespeed.conf all vm:Java8U66
 # rebench "${PARAMS[@]}" codespeed.conf all vm:JavaInt
 
