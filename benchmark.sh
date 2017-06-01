@@ -18,14 +18,13 @@ git submodule update --recursive
 # rebench "${PARAMS[@]}" codespeed.conf all vm:TruffleSOM vm:TruffleSOM-TOM
 # rebench "${PARAMS[@]}" codespeed.conf all vm:SOMns
 # rebench "${PARAMS[@]}" codespeed.conf all
-rebench "${PARAMS[@]}" codespeed.conf all vm:Crystal vm:Node vm:NodeTurboFan
+# rebench "${PARAMS[@]}" codespeed.conf all vm:Crystal vm:Node vm:NodeTurboFan
 # rebench "${PARAMS[@]}" codespeed.conf all vm:RSqueak
 # rebench "${PARAMS[@]}" codespeed.conf all vm:SOMnsInt
 # rebench "${PARAMS[@]}" codespeed.conf all vm:SOMns
 
 # rebench "${PARAMS[@]}" codespeed.conf steady-js vm:Node vm:NodeTurboFan
-# rebench "${PARAMS[@]}" codespeed.conf all vm:Java8U66
-# rebench "${PARAMS[@]}" codespeed.conf all vm:JavaInt
+rebench "${PARAMS[@]}" codespeed.conf all vm:Node vm:NodeTurboFan vm:Java8U66  vm:JavaInt
 
 
 DATA_ROOT=~/benchmark-results/are-we-fast-yet
