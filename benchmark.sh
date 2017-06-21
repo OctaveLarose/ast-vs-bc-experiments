@@ -13,7 +13,8 @@ git submodule update --recursive
 
 # rebench "${PARAMS[@]}" codespeed.conf lua
 
-rebench "${PARAMS[@]}" codespeed.conf all vm:GraalBasic vm:GraalC2 vm:SOMns
+# rebench "${PARAMS[@]}" codespeed.conf all vm:GraalBasic vm:GraalC2 vm:SOMns
+rebench "${PARAMS[@]}" codespeed.conf all vm:SOMns-Enterprise vm:GraalEnterprise vm:JRubyTruffleEnterprise vm:GraalJS
 # rebench "${PARAMS[@]}" codespeed.conf all vm:JRubyGraal vm:JRubyTruffle
 # rebench "${PARAMS[@]}" codespeed.conf all vm:TruffleSOM vm:TruffleSOM-TOM
 # rebench "${PARAMS[@]}" codespeed.conf all vm:SOMns
