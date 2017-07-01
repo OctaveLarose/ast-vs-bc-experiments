@@ -6,28 +6,29 @@ git submodule update --recursive
 
 # (cd awfy && ./implementations/setup.sh)
 
-# rebench "${PARAMS[@]}" codespeed.conf all vm:Node
-# rebench "${PARAMS[@]}" codespeed.conf all vm:NodeTurboFan
-# rebench "${PARAMS[@]}" codespeed.conf steady-java
-# rebench "${PARAMS[@]}" codespeed.conf steady-crystal
+# rebench -f "${PARAMS[@]}" codespeed.conf all vm:Node
+# rebench -f "${PARAMS[@]}" codespeed.conf all vm:NodeTurboFan
+# rebench -f "${PARAMS[@]}" codespeed.conf steady-java
+# rebench -f "${PARAMS[@]}" codespeed.conf steady-crystal
 
-# rebench "${PARAMS[@]}" codespeed.conf lua
+# rebench -f "${PARAMS[@]}" codespeed.conf lua
 
-# rebench "${PARAMS[@]}" codespeed.conf all vm:GraalBasic vm:GraalC2 vm:SOMns
-# rebench "${PARAMS[@]}" codespeed.conf all vm:SOMns-Enterprise vm:GraalEnterprise vm:JRubyTruffleEnterprise vm:GraalJS
-# rebench "${PARAMS[@]}" codespeed.conf all vm:JRubyGraal vm:JRubyTruffle
-# rebench "${PARAMS[@]}" codespeed.conf all vm:TruffleSOM vm:TruffleSOM-TOM
-# rebench "${PARAMS[@]}" codespeed.conf all vm:SOMns
-# rebench "${PARAMS[@]}" codespeed.conf all
-# rebench "${PARAMS[@]}" codespeed.conf all vm:Crystal vm:Node vm:NodeTurboFan
-# rebench "${PARAMS[@]}" codespeed.conf all vm:RSqueak
-# rebench "${PARAMS[@]}" codespeed.conf all vm:SOMnsInt
-# rebench "${PARAMS[@]}" codespeed.conf all vm:SOMns
+# rebench -f "${PARAMS[@]}" codespeed.conf all vm:GraalBasic vm:GraalC2 vm:SOMns
+# rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMns-Enterprise vm:GraalEnterprise vm:JRubyTruffleEnterprise vm:GraalJS
+# rebench -f "${PARAMS[@]}" codespeed.conf all vm:JRubyGraal vm:JRubyTruffle
+# rebench -f "${PARAMS[@]}" codespeed.conf all vm:TruffleSOM vm:TruffleSOM-TOM
+# rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMns
+# rebench -f "${PARAMS[@]}" codespeed.conf all
+# rebench -f "${PARAMS[@]}" codespeed.conf all vm:Crystal vm:Node vm:NodeTurboFan
+# rebench -f "${PARAMS[@]}" codespeed.conf all vm:RSqueak
+# rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMnsInt
+# rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMns
 
-rebench "${PARAMS[@]}" codespeed.conf all vm:SOMppOMR
-rebench "${PARAMS[@]}" codespeed.conf all vm:SOMpp
-# rebench "${PARAMS[@]}" codespeed.conf all vm:Node vm:NodeTurboFan
-# rebench "${PARAMS[@]}" codespeed.conf all vm:Java8U66  vm:JavaInt
+rebench -f "${PARAMS[@]}" codespeed.conf all vm:TruffleSOM
+# rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMppOMR
+# rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMpp
+# rebench -f "${PARAMS[@]}" codespeed.conf all vm:Node vm:NodeTurboFan
+# rebench -f "${PARAMS[@]}" codespeed.conf all vm:Java8U66  vm:JavaInt
 
 
 DATA_ROOT=~/benchmark-results/are-we-fast-yet
