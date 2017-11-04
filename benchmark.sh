@@ -7,7 +7,6 @@ git submodule update --recursive
 # (cd awfy && ./implementations/setup.sh)
 
 # rebench -f "${PARAMS[@]}" codespeed.conf all vm:Node
-# rebench -f "${PARAMS[@]}" codespeed.conf all vm:NodeTurboFan
 # rebench -f "${PARAMS[@]}" codespeed.conf steady-java
 # rebench -f "${PARAMS[@]}" codespeed.conf steady-crystal
 
@@ -18,7 +17,7 @@ git submodule update --recursive
 # rebench -f "${PARAMS[@]}" codespeed.conf all vm:JRubyGraal vm:JRubyTruffle
 # rebench -f "${PARAMS[@]}" codespeed.conf all vm:TruffleSOM vm:TruffleSOM-TOM
 # rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMns
-# rebench -f "${PARAMS[@]}" codespeed.conf all
+
 # vm:Crystal 
 rebench -f "${PARAMS[@]}" codespeed.conf all vm:Node
 # rebench -f "${PARAMS[@]}" codespeed.conf all vm:RSqueak
@@ -32,7 +31,6 @@ rebench -f "${PARAMS[@]}" codespeed.conf all vm:Node
 # rebench -f "${PARAMS[@]}" codespeed.conf all vm:TruffleSOM-TOM
 # rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMppOMR
 # rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMpp
-# rebench -f "${PARAMS[@]}" codespeed.conf all vm:Node vm:NodeTurboFan
 # rebench -f "${PARAMS[@]}" codespeed.conf all vm:Java8U66  vm:JavaInt
 
 
