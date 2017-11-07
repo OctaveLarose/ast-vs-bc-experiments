@@ -19,8 +19,8 @@ git submodule update --recursive
 # rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMns
 
 # vm:Crystal 
-rebench -f "${PARAMS[@]}" codespeed.conf all vm:Node
-# rebench -f "${PARAMS[@]}" codespeed.conf all vm:RSqueak
+# rebench -f "${PARAMS[@]}" codespeed.conf all vm:Node
+rebench -f "${PARAMS[@]}" codespeed.conf all vm:RSqueak vm:Topaz
 # rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMnsInt
 # rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMns
 
