@@ -6,33 +6,57 @@ git submodule update --recursive
 
 # (cd awfy && ./implementations/setup.sh)
 
-# rebench -f "${PARAMS[@]}" codespeed.conf steady-java
-# rebench -f "${PARAMS[@]}" codespeed.conf lua
 
-rebench -f "${PARAMS[@]}" codespeed.conf all \
-  vm:Crystal \
-  vm:Node
-#  vm:GraalBasic vm:GraalC2 vm:SOMns
-# rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMns-Enterprise vm:GraalEnterprise vm:JRubyTruffleEnterprise vm:GraalJS
-# rebench -f "${PARAMS[@]}" codespeed.conf all vm:JRubyGraal vm:JRubyTruffle
-# rebench -f "${PARAMS[@]}" codespeed.conf all vm:TruffleSOM vm:TruffleSOM-TOM
-# rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMns
+VMS=(
+  "vm:GraalBasic"
+  "vm:GraalC2"
+  "vm:GraalEnterprise"
+  # "vm:Java8U66"
+  # "vm:JavaInt"
+  
+  "vm:SOM"
+  # "vm:SOMpp"
+  # "vm:SOMppOMR"
+  "vm:TruffleSOM"
+  "vm:TruffleSOM-Enterprise"
+  "vm:TruffleSOM-TOM"
+  "vm:TruffleSOM-TOM-Enterprise"
+  
+  "vm:RTruffleSOM"
+  "vm:RTruffleSOMInt"
 
-# rebench -f "${PARAMS[@]}" codespeed.conf all vm:GraalEnterprise vm:GraalJS
+  "vm:SOMns"
+  "vm:SOMnsInt"
+  "vm:SOMns-Enterprise"
+  
+  # "vm:JRubyTruffle"
+  # "vm:JRubyTruffleEnterprise"
+  # "vm:JRubyC2"
+  # "vm:JRubyJ8"
+  # "vm:JRubyGraal"
 
-# vm:Crystal vm:Node vm:RSqueak vm:Topaz
-# rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMnsInt
-# rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMns
+  # "vm:MRI23"
+  # "vm:RBX314"
+  # "vm:Topaz"
 
-# rebench -f "${PARAMS[@]}" codespeed.conf all vm:LuaJIT2
-# rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOM
-# rebench -f "${PARAMS[@]}" codespeed.conf all vm:RTruffleSOM vm:RTruffleSOMInt
+  # "vm:Crystal"
 
-# rebench -f "${PARAMS[@]}" codespeed.conf all vm:TruffleSOM-TOM
-# rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMppOMR
-# rebench -f "${PARAMS[@]}" codespeed.conf all vm:SOMpp
-# rebench -f "${PARAMS[@]}" codespeed.conf all vm:Java8U66  vm:JavaInt
+  # "vm:Node"
 
+  "vm:GraalJS"
+  
+  # "vm:Pharo"
+  # "vm:Squeak"
+  "vm:RSqueak"
+
+  # vm:LuaJIT2
+  # vm:Lua53
+)
+
+rebench -f "${PARAMS[@]}" codespeed.conf all "${VMS[@]}"
+
+
+## Archive Results
 
 DATA_ROOT=~/benchmark-results/are-we-fast-yet
 
