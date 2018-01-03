@@ -8,22 +8,22 @@ git submodule update --recursive
 
 
 VMS=(
-  "vm:GraalBasic"
-  "vm:GraalC2"
-  "vm:GraalEnterprise"
+  # "vm:GraalBasic"
+  # "vm:GraalC2"
+  # "vm:GraalEnterprise"
   # "vm:Java8U66"
   # "vm:JavaInt"
   
-  "vm:SOM"
+  # "vm:SOM"
   # "vm:SOMpp"
   # "vm:SOMppOMR"
-  "vm:TruffleSOM"
-  "vm:TruffleSOM-Enterprise"
-  "vm:TruffleSOM-TOM"
-  "vm:TruffleSOM-TOM-Enterprise"
+  # "vm:TruffleSOM"
+  # "vm:TruffleSOM-Enterprise"
+  # "vm:TruffleSOM-TOM"
+  # "vm:TruffleSOM-TOM-Enterprise"
   
-  "vm:RTruffleSOM"
-  "vm:RTruffleSOMInt"
+  # "vm:RTruffleSOM"
+  # "vm:RTruffleSOMInt"
 
   "vm:SOMns"
   "vm:SOMnsInt"
@@ -43,11 +43,11 @@ VMS=(
 
   # "vm:Node"
 
-  "vm:GraalJS"
+  # "vm:GraalJS"
   
   # "vm:Pharo"
   # "vm:Squeak"
-  "vm:RSqueak"
+  # "vm:RSqueak"
 
   # vm:LuaJIT2
   # vm:Lua53
