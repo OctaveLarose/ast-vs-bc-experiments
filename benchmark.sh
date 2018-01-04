@@ -8,11 +8,11 @@ git submodule update --recursive
 
 
 VMS=(
-  # "vm:GraalBasic"
-  # "vm:GraalC2"
-  # "vm:GraalEnterprise"
-  # "vm:Java8U66"
-  # "vm:JavaInt"
+  "vm:GraalBasic"
+  "vm:GraalC2"
+  "vm:GraalEnterprise"
+  "vm:Java8U66"
+  "vm:JavaInt"
   
   # "vm:SOM"
   # "vm:SOMpp"
@@ -25,9 +25,9 @@ VMS=(
   # "vm:RTruffleSOM"
   # "vm:RTruffleSOMInt"
 
-  "vm:SOMns"
-  "vm:SOMnsInt"
-  "vm:SOMns-Enterprise"
+  # "vm:SOMns"
+  # "vm:SOMnsInt"
+  # "vm:SOMns-Enterprise"
   
   # "vm:JRubyTruffle"
   # "vm:JRubyTruffleEnterprise"
