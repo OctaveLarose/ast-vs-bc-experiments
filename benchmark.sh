@@ -55,7 +55,7 @@ VMS=(
 
 #rebench -f "${PARAMS[@]}" codespeed.conf all "${VMS[@]}"
 rebench -q -f "${PARAMS[@]}" codespeed.conf all
-
+REBENCH_EXIT=$?
 
 ## Archive Results
 
@@ -74,3 +74,5 @@ bzip2 benchmark.data
 cp benchmark.data.bz2 $TARGET_PATH/
 rm $LATEST
 ln -s $TARGET_PATH $LATEST
+
+exit ${REBENCH_EXIT}
