@@ -53,7 +53,7 @@ VMS=(
   # e:Lua53
 )
 
-rebench -f --setup-only "${PARAMS[@]}" codespeed.conf all "${VMS[@]}"
+rebench -f "${PARAMS[@]}" codespeed.conf all "${VMS[@]}"
 #rebench -f --setup-only "${PARAMS[@]}" codespeed.conf all
 REBENCH_EXIT=$?
 
