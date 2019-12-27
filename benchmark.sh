@@ -1,60 +1,60 @@
 #!/bin/bash
 #AWFY_REF=`(cd awfy && git rev-parse HEAD)`
 # CI_BUILD_REF=2cd905bd67a061705eaf8098832f49886d5c9de2
-PARAMS=("--without-nice" "--commit-id=$CI_BUILD_REF" "--environment=Infinity Ubuntu" "--project=AWFY" "--branch=$CI_BUILD_REF_NAME")
+PARAMS=("--without-nice" "-S" "--experiment=\"CI Benchmark Run Pipeline ID $CI_PIPELINE_ID\"" "--branch=\"$CI_COMMIT_REF_NAME\"")
 git submodule update --recursive
 
 # (cd awfy && ./implementations/setup.sh)
 
 
 VMS=(
-  "vm:GraalBasic"
-  "vm:GraalC2"
-  # "vm:GraalEnterprise"
-  # "vm:Java8U66"
-  # "vm:JavaInt"
+  # "e:GraalBasic"
+  # "e:GraalC2"
+  # "e:GraalEnterprise"
+  # "e:Java8U66"
+  "e:JavaInt"
   
-  # "vm:SOM"
-  # "vm:SOMpp"
-  # "vm:SOMppOMR"
-  # "vm:TruffleSOM"
-  # "vm:TruffleSOM-Enterprise"
-  # "vm:TruffleSOM-TOM"
-  # "vm:TruffleSOM-TOM-Enterprise"
+  "e:SOM"
+  # "e:SOMpp"
+  # "e:SOMppOMR"
+  # "e:TruffleSOM"
+  # "e:TruffleSOM-Enterprise"
+  # "e:TruffleSOM-TOM"
+  # "e:TruffleSOM-TOM-Enterprise"
   
-  # "vm:RTruffleSOM"
-  # "vm:RTruffleSOMInt"
+  # "e:RTruffleSOM"
+  # "e:RTruffleSOMInt"
 
-  # "vm:SOMns"
-  # "vm:SOMnsInt"
-  # "vm:SOMns-Enterprise"
+  "e:SOMns"
+  # "e:SOMnsInt"
+  # "e:SOMns-Enterprise"
   
-  # "vm:JRubyTruffle"
-  # "vm:JRubyTruffleEnterprise"
-  # "vm:JRubyC2"
-  # "vm:JRubyJ8"
-  # "vm:JRubyGraal"
+  # "e:JRubyTruffle"
+  # "e:JRubyTruffleEnterprise"
+  # "e:JRubyC2"
+  # "e:JRubyJ8"
+  # "e:JRubyGraal"
 
-  # "vm:MRI23"
-  # "vm:RBX314"
-  # "vm:Topaz"
+  # "e:MRI23"
+  # "e:RBX314"
+  # "e:Topaz"
 
-  # "vm:Crystal"
+  "e:Crystal"
 
-  # "vm:Node"
+  "e:Node"
 
-  # "vm:GraalJS"
+  # "e:GraalJS"
   
-  # "vm:Pharo"
-  # "vm:Squeak"
-  # "vm:RSqueak"
+  # "e:Pharo"
+  # "e:Squeak"
+  # "e:RSqueak"
 
-  # vm:LuaJIT2
-  # vm:Lua53
+  # e:LuaJIT2
+  # e:Lua53
 )
 
-#rebench -f "${PARAMS[@]}" codespeed.conf all "${VMS[@]}"
-rebench -q -f "${PARAMS[@]}" codespeed.conf all
+rebench -f --setup-only "${PARAMS[@]}" codespeed.conf all "${VMS[@]}"
+#rebench -f --setup-only "${PARAMS[@]}" codespeed.conf all
 REBENCH_EXIT=$?
 
 ## Archive Results
