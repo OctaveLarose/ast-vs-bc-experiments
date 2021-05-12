@@ -39,9 +39,10 @@ VMS=(
   # "e:RBX314"
   # "e:Topaz"
 
-  "e:Crystal"
+  # "e:Crystal"
 
   "e:Node"
+  "e:Node-interp"
 
   # "e:GraalJS"
   
@@ -50,7 +51,7 @@ VMS=(
   # "e:RSqueak"
 
   # e:LuaJIT2
-  # e:Lua53
+  e:Lua53
 )
 
 rebench -f "${PARAMS[@]}" codespeed.conf all "${VMS[@]}"
