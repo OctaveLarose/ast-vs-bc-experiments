@@ -1,7 +1,7 @@
 #!/bin/bash
 #AWFY_REF=`(cd awfy && git rev-parse HEAD)`
 # CI_BUILD_REF=2cd905bd67a061705eaf8098832f49886d5c9de2
-PARAMS=("--without-nice" "-S" "--experiment=\"CI Benchmark Run Pipeline ID $CI_PIPELINE_ID\"" "--branch=\"$CI_COMMIT_REF_NAME\"")
+PARAMS=("--experiment=\"CI ID $CI_PIPELINE_ID\"" "--branch=\"$CI_COMMIT_REF_NAME\"")
 git submodule update --recursive
 
 # (cd awfy && ./implementations/setup.sh)
@@ -11,7 +11,7 @@ VMS=(
   # "e:GraalBasic"
   # "e:GraalC2"
   # "e:GraalEnterprise"
-  # "e:Java8U66"
+  "e:Java8U66"
   "e:JavaInt"
   
   "e:SOM"
@@ -35,7 +35,7 @@ VMS=(
   # "e:JRubyJ8"
   # "e:JRubyGraal"
 
-  # "e:MRI23"
+  "e:MRI23"
   # "e:RBX314"
   # "e:Topaz"
 
@@ -56,6 +56,10 @@ VMS=(
 rebench -f "${PARAMS[@]}" codespeed.conf all "${VMS[@]}"
 #rebench -f --setup-only "${PARAMS[@]}" codespeed.conf all
 REBENCH_EXIT=$?
+
+# rebench --experiment="CI ID $CI_PIPELINE_ID" --report-completion codespeed.conf
+
+
 
 ## Archive Results
 
