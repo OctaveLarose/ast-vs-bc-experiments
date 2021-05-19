@@ -1,7 +1,7 @@
 #!/bin/bash
 #AWFY_REF=`(cd awfy && git rev-parse HEAD)`
 # CI_BUILD_REF=2cd905bd67a061705eaf8098832f49886d5c9de2
-PARAMS=("--experiment=\"CI ID $CI_PIPELINE_ID\"" "--branch=\"$CI_COMMIT_REF_NAME\"")
+PARAMS=("--experiment=CI ID $CI_PIPELINE_ID" "--branch=$CI_COMMIT_REF_NAME")
 git submodule update --recursive
 
 # (cd awfy && ./implementations/setup.sh)
@@ -52,6 +52,9 @@ VMS=(
 
   # e:LuaJIT2
   e:Lua53
+  
+  e:PyPy-jit
+  e:CPython-interp
 )
 
 rebench -f "${PARAMS[@]}" codespeed.conf all "${VMS[@]}"
