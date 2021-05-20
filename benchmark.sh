@@ -11,10 +11,10 @@ VMS=(
   # "e:GraalBasic"
   # "e:GraalC2"
   # "e:GraalEnterprise"
-  "e:Java8U66"
-  "e:JavaInt"
+  # "e:Java8U66"
+  # "e:JavaInt"
   
-  "e:SOM"
+  # "e:SOM"
   # "e:SOMpp"
   # "e:SOMppOMR"
   # "e:TruffleSOM"
@@ -25,7 +25,7 @@ VMS=(
   # "e:RTruffleSOM"
   # "e:RTruffleSOMInt"
 
-  "e:SOMns"
+  # "e:SOMns"
   # "e:SOMnsInt"
   # "e:SOMns-Enterprise"
   
@@ -35,14 +35,14 @@ VMS=(
   # "e:JRubyJ8"
   # "e:JRubyGraal"
 
-  "e:MRI23"
+  # "e:MRI23"
   # "e:RBX314"
   # "e:Topaz"
 
   # "e:Crystal"
 
-  "e:Node"
-  "e:Node-interp"
+  # "e:Node"
+  # "e:Node-interp"
 
   # "e:GraalJS"
   
@@ -51,10 +51,13 @@ VMS=(
   # "e:RSqueak"
 
   # e:LuaJIT2
-  e:Lua53
+  # e:Lua53
   
-  e:PyPy-jit
-  e:CPython-interp
+  # e:PyPy-jit
+  # e:CPython-interp
+  
+  e:Pyston-jit
+  e:GraalPython-jit
 )
 
 rebench -f "${PARAMS[@]}" codespeed.conf all "${VMS[@]}"
