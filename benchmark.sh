@@ -53,8 +53,9 @@ VMS=(
   # e:LuaJIT2
   # e:Lua53
   
-  # e:PyPy-jit
-  # e:CPython-interp
+  e:Cinder-jit
+  e:PyPy-jit
+  e:CPython-interp
   
   e:Pyston-jit
   e:GraalPython-jit
