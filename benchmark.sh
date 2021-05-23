@@ -29,20 +29,20 @@ VMS=(
   # "e:SOMnsInt"
   # "e:SOMns-Enterprise"
   
-  # "e:JRubyTruffle"
+  e:TruffleRuby
   # "e:JRubyTruffleEnterprise"
   # "e:JRubyC2"
   # "e:JRubyJ8"
   # "e:JRubyGraal"
 
-  # "e:MRI23"
+  e:MRI23
   # "e:RBX314"
   # "e:Topaz"
 
   # "e:Crystal"
 
-  # "e:Node"
-  # "e:Node-interp"
+  e:Node
+  e:Node-interp
 
   # "e:GraalJS"
   
