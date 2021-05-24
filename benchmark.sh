@@ -29,20 +29,20 @@ VMS=(
   # "e:SOMnsInt"
   # "e:SOMns-Enterprise"
   
-  e:TruffleRuby
+  e:TruffleRuby-jit
   # "e:JRubyTruffleEnterprise"
   # "e:JRubyC2"
   # "e:JRubyJ8"
   # "e:JRubyGraal"
 
-  e:MRI23
+  # e:MRI23
   # "e:RBX314"
   # "e:Topaz"
 
   # "e:Crystal"
 
-  e:Node
-  e:Node-interp
+  # e:Node
+  # e:Node-interp
 
   # "e:GraalJS"
   
@@ -53,12 +53,12 @@ VMS=(
   # e:LuaJIT2
   # e:Lua53
   
-  e:Cinder-jit
-  e:PyPy-jit
-  e:CPython-interp
+  # e:Cinder-jit
+  # e:PyPy-jit
+  # e:CPython-interp
   
-  e:Pyston-jit
-  e:GraalPython-jit
+  # e:Pyston-jit
+  # e:GraalPython-jit
 )
 
 rebench -f "${PARAMS[@]}" codespeed.conf all "${VMS[@]}"
