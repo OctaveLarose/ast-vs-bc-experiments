@@ -16,21 +16,24 @@ variables:
       e:Java17-C2-jit
       e:Java-GraalCE-jit
       e:Java-GraalEE-jit
-      e:Java-NativeCE
-      e:Java-NativeEE
+      # e:Java-NativeCE
+      # e:Java-NativeEE
   
-      # "e:SOM"
+      e:SOM-Java17-C2
       # "e:SOMpp"
       # "e:SOMppOMR"
-      e:TruffleSOM-CE-jit
-      e:TruffleSOM-NativeCE-int
-      e:TruffleSOM-NativeCE-jit
+      e:TruffleSOM-ast-CE-jit
+      e:TruffleSOM-bc-CE-jit
+      # e:TruffleSOM-NativeCE-int
+      # e:TruffleSOM-NativeCE-jit
       # "e:TruffleSOM-Enterprise"
       # "e:TruffleSOM-TOM"
       # "e:TruffleSOM-TOM-Enterprise"
   
-      # "e:RTruffleSOM"
-      # "e:RTruffleSOMInt"
+      e:PySOM-ast-jit
+      e:PySOM-ast-int
+      e:PySOM-bc-jit
+      e:PySOM-bc-int
 
       # "e:SOMns"
       # "e:SOMnsInt"
