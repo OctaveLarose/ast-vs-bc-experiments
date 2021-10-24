@@ -39,12 +39,12 @@ variables:
       # "e:SOMnsInt"
       # "e:SOMns-Enterprise"
   
-      e:TruffleRuby-CE-jit
-      e:TruffleRuby-EE-jit
+      # e:TruffleRuby-CE-jit
+      # e:TruffleRuby-EE-jit
       e:TruffleRuby-NativeCE-int
-      e:TruffleRuby-NativeEE-int
+      # e:TruffleRuby-NativeEE-int
       e:TruffleRuby-NativeCE-jit
-      e:TruffleRuby-NativeEE-jit
+      # e:TruffleRuby-NativeEE-jit
   
       # "e:JRubyTruffleEnterprise"
       # "e:JRubyC2"
