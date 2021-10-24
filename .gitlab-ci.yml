@@ -53,8 +53,8 @@ variables:
       
       # "e:Crystal"
 
-      # e:Node
-      # e:Node-interp
+      e:Node-jit
+      e:Node-int
 
       # "e:GraalJS"
   
@@ -72,7 +72,7 @@ variables:
       # e:Pyston-jit
       # e:GraalPython-jit
     )
-  params: &PARAMS export PARAMS="-f --setup-only"
+  params: &PARAMS export PARAMS="-f --quick"
     
 
 before_script:
