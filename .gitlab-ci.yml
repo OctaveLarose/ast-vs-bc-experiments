@@ -109,7 +109,7 @@ build-y3:
     - rebench $PARAMS codespeed.conf all "${EXECUTORS[@]}"
 
 
-benchmark-deltablue:
+deltablue:
   stage: benchmark
   tags: [yuria]
   script:
@@ -117,7 +117,7 @@ benchmark-deltablue:
     - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:DeltaBlue
 
-benchmark-richards:
+richards:
   stage: benchmark
   tags: [yuria2]
   script:
@@ -125,7 +125,7 @@ benchmark-richards:
     - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Richards
 
-benchmark-json:
+json:
   stage: benchmark
   tags: [yuria3]
   script:
@@ -133,7 +133,7 @@ benchmark-json:
     - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Json
 
-benchmark-cd:
+cd:
   stage: benchmark
   tags: [yuria]
   script:
@@ -141,7 +141,7 @@ benchmark-cd:
     - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:CD
 
-benchmark-havlak:
+havlak:
   stage: benchmark
   tags: [yuria2]
   script:
@@ -149,7 +149,7 @@ benchmark-havlak:
     - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Havlak
 
-benchmark-bounce:
+bounce:
   stage: benchmark
   tags: [yuria3]
   script:
@@ -157,7 +157,7 @@ benchmark-bounce:
     - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Bounce
 
-benchmark-list:
+list:
   stage: benchmark
   tags: [yuria]
   script:
@@ -165,7 +165,7 @@ benchmark-list:
     - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:List
 
-benchmark-mandelbrot:
+mandelbrot:
   stage: benchmark
   tags: [yuria2]
   script:
@@ -173,7 +173,7 @@ benchmark-mandelbrot:
     - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Mandelbrot
 
-benchmark-nbody:
+nbody:
   stage: benchmark
   tags: [yuria3]
   script:
@@ -181,7 +181,7 @@ benchmark-nbody:
     - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:NBody
 
-benchmark-permute:
+permute:
   stage: benchmark
   tags: [yuria]
   script:
@@ -189,7 +189,7 @@ benchmark-permute:
     - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Permute
 
-benchmark-queens:
+queens:
   stage: benchmark
   tags: [yuria2]
   script:
@@ -197,7 +197,7 @@ benchmark-queens:
     - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Queens
 
-benchmark-sieve:
+sieve:
   stage: benchmark
   tags: [yuria3]
   script:
@@ -205,7 +205,7 @@ benchmark-sieve:
     - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Sieve
 
-benchmark-storage:
+storage:
   stage: benchmark
   tags: [yuria]
   script:
@@ -213,7 +213,7 @@ benchmark-storage:
     - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Storage
 
-benchmark-towers:
+towers:
   stage: benchmark
   tags: [yuria2]
   script:
