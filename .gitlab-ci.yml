@@ -11,12 +11,12 @@ variables:
 .benchmark-settings:
   executors: &EXECUTORS |
     export EXECUTORS=(
-      e:Java8-int
-      e:Java17-int
-      e:Java8-C2-jit
-      e:Java17-C2-jit
-      e:Java-GraalCE-jit
-      e:Java-GraalEE-jit
+      # e:Java8-int
+      # e:Java17-int
+      # e:Java8-C2-jit
+      # e:Java17-C2-jit
+      # e:Java-GraalCE-jit
+      # e:Java-GraalEE-jit
       # e:Java-NativeCE
       # e:Java-NativeEE
   
@@ -53,13 +53,13 @@ variables:
       # "e:JRubyJ8"
       # "e:JRubyGraal"
 
-      e:CRuby27-int
-      e:CRuby30-int
+      # e:CRuby27-int
+      # e:CRuby30-int
       
       # "e:Crystal"
 
-      e:Node-jit
-      e:Node-int
+      # e:Node-jit
+      # e:Node-int
 
       # "e:GraalJS"
   
