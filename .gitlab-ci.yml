@@ -215,7 +215,7 @@ storage:
 
 towers:
   stage: benchmark
-  tags: [yuria2]
+  tags: [yuria3]
   script:
     - *EXECUTORS
     - *PARAMS_RUN
