@@ -11,8 +11,8 @@ variables:
 .benchmark-settings:
   executors: &EXECUTORS |
     export EXECUTORS=(
-      e:Java-int
-      e:Java-C2-jit
+      # e:Java-int
+      # e:Java-C2-jit
   
       # e:TruffleSOM-ast-HotspotEE-jit-main
       # e:TruffleSOM-bc-HotspotEE-jit-main
@@ -22,26 +22,26 @@ variables:
       # e:TruffleSOM-ast-NativeEE-int-uber
       # e:TruffleSOM-ast-NativeEE-int-super
   
-      e:PySOM-ast-jit
-      e:PySOM-ast-int
-      e:PySOM-bc-jit
-      e:PySOM-bc-int
+      # e:PySOM-ast-jit
+      # e:PySOM-ast-int
+      # e:PySOM-bc-jit
+      # e:PySOM-bc-int
 
-      e:Node-int
-      e:Node-jit
-      e:GraalJS-HotspotEE-jit
-      e:GraalJS-NativeEE-int
+      # e:Node-int
+      # e:Node-jit
+      # e:GraalJS-HotspotEE-jit
+      # e:GraalJS-NativeEE-int
   
       e:CPython-int
       e:PyPy-jit
       e:GraalPython-HotspotEE-jit
       e:GraalPython-NativeEE-int
       
-      e:CRuby-int
-      e:CRuby-y-jit
-      
-      e:TruffleRuby-HotspotEE-jit
-      e:TruffleRuby-NativeEE-int
+      # e:CRuby-int
+      # e:CRuby-y-jit
+      #
+      # e:TruffleRuby-HotspotEE-jit
+      # e:TruffleRuby-NativeEE-int
     )
   params-build: &PARAMS_BUILD export PARAMS="-f --setup-only --disable-data-reporting"
   params-run:   &PARAMS_RUN   export PARAMS="-f -q --without-building"
