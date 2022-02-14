@@ -11,74 +11,40 @@ variables:
 .benchmark-settings:
   executors: &EXECUTORS |
     export EXECUTORS=(
-      e:Java8-int
-      e:Java17-int
-      e:Java8-C2-jit
-      e:Java17-C2-jit
-      e:Java-GraalCE-jit
-      e:Java-GraalEE-jit
-      # e:Java-NativeCE
-      # e:Java-NativeEE
+      e:Java-int
+      e:Java-C2-jit
   
-      e:SOM-Java17-C2
-      # "e:SOMpp"
-      # "e:SOMppOMR"
-      e:TruffleSOM-ast-CE-jit
-      e:TruffleSOM-bc-CE-jit
-      e:TruffleSOM-ast-NativeCE-int
-      e:TruffleSOM-bc-NativeCE-int
-      
-      # "e:TruffleSOM-Enterprise"
-      # "e:TruffleSOM-TOM"
-      # "e:TruffleSOM-TOM-Enterprise"
+      # e:TruffleSOM-ast-HotspotEE-jit-main
+      # e:TruffleSOM-bc-HotspotEE-jit-main
+      # e:TruffleSOM-ast-NativeEE-int-main
+      # e:TruffleSOM-bc-NativeEE-int-main
+      #
+      # e:TruffleSOM-ast-NativeEE-int-uber
+      # e:TruffleSOM-ast-NativeEE-int-super
   
       e:PySOM-ast-jit
       e:PySOM-ast-int
       e:PySOM-bc-jit
       e:PySOM-bc-int
 
-      # "e:SOMns"
-      # "e:SOMnsInt"
-      # "e:SOMns-Enterprise"
-  
-      e:TruffleRuby-CE-jit
-      e:TruffleRuby-EE-jit
-      e:TruffleRuby-NativeCE-int
-      # e:TruffleRuby-NativeEE-int
-      e:TruffleRuby-NativeCE-jit
-      # e:TruffleRuby-NativeEE-jit
-  
-      # "e:JRubyTruffleEnterprise"
-      # "e:JRubyC2"
-      # "e:JRubyJ8"
-      # "e:JRubyGraal"
-
-      e:CRuby27-int
-      e:CRuby30-int
-      
-      # "e:Crystal"
-
-      e:Node-jit
       e:Node-int
-
-      # "e:GraalJS"
+      e:Node-jit
+      e:GraalJS-HotspotEE-jit
+      e:GraalJS-NativeEE-int
   
-      # "e:Pharo"
-      # "e:Squeak"
-      # "e:RSqueak"
-
-      # e:LuaJIT2
-      # e:Lua53
-  
-      # e:Cinder-jit
-      # e:PyPy-jit
-      # e:CPython-interp
-  
-      # e:Pyston-jit
-      # e:GraalPython-jit
+      e:CPython-int
+      e:PyPy-jit
+      e:GraalPython-HotspotEE-jit
+      e:GraalPython-NativeEE-int
+      
+      e:CRuby-int
+      e:CRuby-y-jit
+      
+      e:TruffleRuby-HotspotEE-jit
+      e:TruffleRuby-NativeEE-int
     )
   params-build: &PARAMS_BUILD export PARAMS="-f --setup-only --disable-data-reporting"
-  params-run:   &PARAMS_RUN   export PARAMS="-f --without-building"
+  params-run:   &PARAMS_RUN   export PARAMS="-f -q --without-building"
     
 
 before_script:
