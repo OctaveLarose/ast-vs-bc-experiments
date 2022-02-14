@@ -14,9 +14,9 @@ variables:
       # e:Java-int
       # e:Java-C2-jit
   
-      # e:TruffleSOM-ast-HotspotEE-jit-main
+      e:TruffleSOM-ast-HotspotEE-jit-main
       # e:TruffleSOM-bc-HotspotEE-jit-main
-      # e:TruffleSOM-ast-NativeEE-int-main
+      e:TruffleSOM-ast-NativeEE-int-main
       # e:TruffleSOM-bc-NativeEE-int-main
       #
       # e:TruffleSOM-ast-NativeEE-int-uber
@@ -32,10 +32,10 @@ variables:
       # e:GraalJS-HotspotEE-jit
       # e:GraalJS-NativeEE-int
   
-      e:CPython-int
-      e:PyPy-jit
+      # e:CPython-int
+      # e:PyPy-jit
       e:GraalPython-HotspotEE-jit
-      e:GraalPython-NativeEE-int
+      # e:GraalPython-NativeEE-int
       
       # e:CRuby-int
       # e:CRuby-y-jit
