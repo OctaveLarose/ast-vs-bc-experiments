@@ -16,6 +16,8 @@ variables:
       #
       # e:TruffleSOM-ast-HotspotCE-jit-main
       # e:TruffleSOM-bc-HotspotCE-jit-main
+      # e:TruffleSOM-ast-HotspotEE-jit-main
+      # e:TruffleSOM-bc-HotspotEE-jit-main
       # e:TruffleSOM-ast-NativeEE-int-main
       # e:TruffleSOM-bc-NativeEE-int-main
       #
@@ -26,22 +28,22 @@ variables:
       # e:PySOM-ast-int
       # e:PySOM-bc-jit
       # e:PySOM-bc-int
-      #
-      # e:Node-int
-      # e:Node-jit
-      # e:GraalJS-HotspotEE-jit
-      # e:GraalJS-NativeEE-int
-      #
-      # e:CPython-int
-      # e:PyPy-jit
+
+      e:Node-int
+      e:Node-jit
+      e:GraalJS-HotspotEE-jit
+      e:GraalJS-NativeEE-int
+
+      e:CPython-int
+      e:PyPy-jit
       e:PyPy-int
-      # e:GraalPython-HotspotEE-jit
-      # e:GraalPython-NativeEE-int
-      #
-      # e:CRuby-int
-      # e:CRuby-y-jit
-      # e:TruffleRuby-HotspotEE-jit
-      # e:TruffleRuby-NativeEE-int
+      e:GraalPython-HotspotEE-jit
+      e:GraalPython-NativeEE-int
+
+      e:CRuby-int
+      e:CRuby-y-jit
+      e:TruffleRuby-HotspotEE-jit
+      e:TruffleRuby-NativeEE-int
     )
   params-build: &PARAMS_BUILD export PARAMS="-d -v -f --setup-only --disable-data-reporting"
   params-run:   &PARAMS_RUN   export PARAMS="-f --without-building"
