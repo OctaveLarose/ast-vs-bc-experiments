@@ -9,6 +9,9 @@ variables:
 .benchmark-settings:
   executors: &EXECUTORS |
     export EXECUTORS=(
+      e:Java-native-safe
+      e:Java-native-unsafe
+
       # e:Java-int
       # e:Java-C2-jit
       # e:Java8-int
@@ -29,10 +32,10 @@ variables:
       # e:PySOM-bc-jit
       # e:PySOM-bc-int
 
-      e:Node-int
-      e:Node-jit
-      e:GraalJS-HotspotEE-jit
-      e:GraalJS-NativeEE-int
+      # e:Node-int
+      # e:Node-jit
+      # e:GraalJS-HotspotEE-jit
+      # e:GraalJS-NativeEE-int
 
       # e:CPython-int
       # e:PyPy-jit
