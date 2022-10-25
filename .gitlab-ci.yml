@@ -14,8 +14,9 @@ variables:
 
       e:Java-int
       e:Java-C2-jit
-      e:Java8-int
-      e:Java8-C2-jit
+      # Would need to change how we build the benchmarks to support Java 17 and 8 at the same time
+      # e:Java8-int
+      # e:Java8-C2-jit
 
       e:TruffleSOM-ast-HotspotCE-jit-main
       e:TruffleSOM-ast-HotspotEE-jit-main
