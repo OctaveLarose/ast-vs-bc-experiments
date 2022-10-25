@@ -12,41 +12,42 @@ variables:
       e:Java-native-safe
       e:Java-native-unsafe
 
-      # e:Java-int
-      # e:Java-C2-jit
-      # e:Java8-int
-      # e:Java8-C2-jit
+      e:Java-int
+      e:Java-C2-jit
+      e:Java8-int
+      e:Java8-C2-jit
 
-      # e:TruffleSOM-ast-HotspotCE-jit-main
-      # e:TruffleSOM-bc-HotspotCE-jit-main
-      # e:TruffleSOM-ast-HotspotEE-jit-main
-      # e:TruffleSOM-bc-HotspotEE-jit-main
-      # e:TruffleSOM-ast-NativeEE-int-main
-      # e:TruffleSOM-bc-NativeEE-int-main
-      #
-      # e:TruffleSOM-ast-NativeEE-int-uber
-      # e:TruffleSOM-ast-NativeEE-int-super
-      #
-      # e:PySOM-ast-jit
-      # e:PySOM-ast-int
-      # e:PySOM-bc-jit
-      # e:PySOM-bc-int
+      e:TruffleSOM-ast-HotspotCE-jit-main
+      e:TruffleSOM-ast-HotspotEE-jit-main
+      e:TruffleSOM-ast-NativeEE-int-main
 
-      # e:Node-int
-      # e:Node-jit
-      # e:GraalJS-HotspotEE-jit
-      # e:GraalJS-NativeEE-int
+      e:TruffleSOM-bc-HotspotCE-jit-main
+      e:TruffleSOM-bc-HotspotEE-jit-main
+      e:TruffleSOM-bc-NativeEE-int-main
 
-      # e:CPython-int
-      # e:PyPy-jit
-      # e:PyPy-int
-      # e:GraalPython-HotspotEE-jit
-      # e:GraalPython-NativeEE-int
-      #
-      # e:CRuby-int
-      # e:CRuby-y-jit
-      # e:TruffleRuby-HotspotEE-jit
-      # e:TruffleRuby-NativeEE-int
+      e:TruffleSOM-ast-NativeEE-int-uber
+      e:TruffleSOM-ast-NativeEE-int-super
+
+      e:PySOM-ast-jit
+      e:PySOM-ast-int
+      e:PySOM-bc-jit
+      e:PySOM-bc-int
+
+      e:Node-int
+      e:Node-jit
+      e:GraalJS-HotspotEE-jit
+      e:GraalJS-NativeEE-int
+
+      e:CPython-int
+      e:PyPy-jit
+      e:PyPy-int
+      e:GraalPython-HotspotEE-jit
+      e:GraalPython-NativeEE-int
+
+      e:CRuby-int
+      e:CRuby-y-jit
+      e:TruffleRuby-HotspotEE-jit
+      e:TruffleRuby-NativeEE-int
     )
   params-build: &PARAMS_BUILD export PARAMS="-d -v -f --setup-only --disable-data-reporting"
   params-run:   &PARAMS_RUN   export PARAMS="-f --without-building"
