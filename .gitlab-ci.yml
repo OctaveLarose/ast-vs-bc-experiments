@@ -81,14 +81,14 @@ build-y3:
     - rebench $PARAMS codespeed.conf all "${EXECUTORS[@]}"
 
 
-deltablue:
-  stage: benchmark
-  needs: ["build-y1"]
-  tags: [yuria]
-  script:
-    - *EXECUTORS
-    - *PARAMS_RUN
-    - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:DeltaBlue
+# deltablue:
+#   stage: benchmark
+#   needs: ["build-y1"]
+#   tags: [yuria]
+#   script:
+#     - *EXECUTORS
+#     - *PARAMS_RUN
+#     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:DeltaBlue
 
 richards:
   stage: benchmark
@@ -99,113 +99,113 @@ richards:
     - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Richards
 
-json:
-  stage: benchmark
-  needs: ["build-y3"]
-  tags: [yuria3]
-  script:
-    - *EXECUTORS
-    - *PARAMS_RUN
-    - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Json
-
-cd:
-  stage: benchmark
-  needs: ["build-y1"]
-  tags: [yuria]
-  script:
-    - *EXECUTORS
-    - *PARAMS_RUN
-    - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:CD
-
-havlak:
-  stage: benchmark
-  needs: ["build-y2"]
-  tags: [yuria2]
-  script:
-    - *EXECUTORS
-    - *PARAMS_RUN
-    - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Havlak
-
-bounce:
-  stage: benchmark
-  needs: ["build-y3"]
-  tags: [yuria3]
-  script:
-    - *EXECUTORS
-    - *PARAMS_RUN
-    - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Bounce
-
-list:
-  stage: benchmark
-  needs: ["build-y1"]
-  tags: [yuria]
-  script:
-    - *EXECUTORS
-    - *PARAMS_RUN
-    - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:List
-
-mandelbrot:
-  stage: benchmark
-  needs: ["build-y2"]
-  tags: [yuria3]
-  script:
-    - *EXECUTORS
-    - *PARAMS_RUN
-    - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Mandelbrot
-
-nbody:
-  stage: benchmark
-  needs: ["build-y3"]
-  tags: [yuria3]
-  script:
-    - *EXECUTORS
-    - *PARAMS_RUN
-    - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:NBody
-
-permute:
-  stage: benchmark
-  needs: ["build-y1"]
-  tags: [yuria]
-  script:
-    - *EXECUTORS
-    - *PARAMS_RUN
-    - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Permute
-
-queens:
-  stage: benchmark
-  needs: ["build-y2"]
-  tags: [yuria2]
-  script:
-    - *EXECUTORS
-    - *PARAMS_RUN
-    - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Queens
-
-sieve:
-  stage: benchmark
-  needs: ["build-y3"]
-  tags: [yuria3]
-  script:
-    - *EXECUTORS
-    - *PARAMS_RUN
-    - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Sieve
-
-storage:
-  stage: benchmark
-  needs: ["build-y1"]
-  tags: [yuria]
-  script:
-    - *EXECUTORS
-    - *PARAMS_RUN
-    - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Storage
-
-towers:
-  stage: benchmark
-  needs: ["build-y3"]
-  tags: [yuria3]
-  script:
-    - *EXECUTORS
-    - *PARAMS_RUN
-    - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Towers
+# json:
+#   stage: benchmark
+#   needs: ["build-y3"]
+#   tags: [yuria3]
+#   script:
+#     - *EXECUTORS
+#     - *PARAMS_RUN
+#     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Json
+#
+# cd:
+#   stage: benchmark
+#   needs: ["build-y1"]
+#   tags: [yuria]
+#   script:
+#     - *EXECUTORS
+#     - *PARAMS_RUN
+#     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:CD
+#
+# havlak:
+#   stage: benchmark
+#   needs: ["build-y2"]
+#   tags: [yuria2]
+#   script:
+#     - *EXECUTORS
+#     - *PARAMS_RUN
+#     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Havlak
+#
+# bounce:
+#   stage: benchmark
+#   needs: ["build-y3"]
+#   tags: [yuria3]
+#   script:
+#     - *EXECUTORS
+#     - *PARAMS_RUN
+#     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Bounce
+#
+# list:
+#   stage: benchmark
+#   needs: ["build-y1"]
+#   tags: [yuria]
+#   script:
+#     - *EXECUTORS
+#     - *PARAMS_RUN
+#     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:List
+#
+# mandelbrot:
+#   stage: benchmark
+#   needs: ["build-y2"]
+#   tags: [yuria3]
+#   script:
+#     - *EXECUTORS
+#     - *PARAMS_RUN
+#     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Mandelbrot
+#
+# nbody:
+#   stage: benchmark
+#   needs: ["build-y3"]
+#   tags: [yuria3]
+#   script:
+#     - *EXECUTORS
+#     - *PARAMS_RUN
+#     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:NBody
+#
+# permute:
+#   stage: benchmark
+#   needs: ["build-y1"]
+#   tags: [yuria]
+#   script:
+#     - *EXECUTORS
+#     - *PARAMS_RUN
+#     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Permute
+#
+# queens:
+#   stage: benchmark
+#   needs: ["build-y2"]
+#   tags: [yuria2]
+#   script:
+#     - *EXECUTORS
+#     - *PARAMS_RUN
+#     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Queens
+#
+# sieve:
+#   stage: benchmark
+#   needs: ["build-y3"]
+#   tags: [yuria3]
+#   script:
+#     - *EXECUTORS
+#     - *PARAMS_RUN
+#     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Sieve
+#
+# storage:
+#   stage: benchmark
+#   needs: ["build-y1"]
+#   tags: [yuria]
+#   script:
+#     - *EXECUTORS
+#     - *PARAMS_RUN
+#     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Storage
+#
+# towers:
+#   stage: benchmark
+#   needs: ["build-y3"]
+#   tags: [yuria3]
+#   script:
+#     - *EXECUTORS
+#     - *PARAMS_RUN
+#     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Towers
 
 report-completion:
   stage: benchmark-completion
