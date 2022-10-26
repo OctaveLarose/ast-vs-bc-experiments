@@ -38,10 +38,10 @@ variables:
       # e:GraalJS-HotspotEE-jit
       # e:GraalJS-NativeEE-int
       #
-      e:CPython-int
+      # e:CPython-int
       # e:PyPy-jit
       # e:PyPy-int
-      e:GraalPython-HotspotEE-jit
+      # e:GraalPython-HotspotEE-jit
       e:GraalPython-NativeEE-int
       #
       # e:CRuby-int
