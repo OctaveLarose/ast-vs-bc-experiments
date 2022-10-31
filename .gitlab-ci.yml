@@ -13,9 +13,11 @@ variables:
       #
       # e:Java-int
       # e:Java-C2-jit
-      e:Java8-int
-      e:Java8-C2-jit
-      #
+      # e:Java8-int
+      # e:Java8-C2-jit
+
+      e:CSOM-int
+
       # e:TruffleSOM-ast-HotspotCE-jit-main
       # e:TruffleSOM-ast-HotspotEE-jit-main
       # e:TruffleSOM-ast-NativeEE-int-main
@@ -61,6 +63,7 @@ build-y1:
   script:
     - *EXECUTORS
     - *PARAMS_BUILD
+    - cp -r scripts ~/.local/
     - rebench $PARAMS codespeed.conf all "${EXECUTORS[@]}"
 
 build-y2:
@@ -69,6 +72,7 @@ build-y2:
   script:
     - *EXECUTORS
     - *PARAMS_BUILD
+    - cp -r scripts ~/.local/
     - rebench $PARAMS codespeed.conf all "${EXECUTORS[@]}"
 
 build-y3:
@@ -77,6 +81,7 @@ build-y3:
   script:
     - *EXECUTORS
     - *PARAMS_BUILD
+    - cp -r scripts ~/.local/
     - rebench $PARAMS codespeed.conf all "${EXECUTORS[@]}"
 
 
