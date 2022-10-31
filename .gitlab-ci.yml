@@ -16,7 +16,7 @@ variables:
       # e:Java8-int
       # e:Java8-C2-jit
 
-      # e:CSOM-int
+      e:CSOM-int
       e:SOMpp-int
 
       # e:TruffleSOM-ast-HotspotCE-jit-main
