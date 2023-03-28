@@ -74,7 +74,7 @@ build-y1:
 
 build-y2:
   stage: build
-  tags: [yuria2]
+  tags: [yuria]
   script:
     - *EXECUTORS
     - *PARAMS_BUILD
@@ -83,7 +83,7 @@ build-y2:
 
 build-y3:
   stage: build
-  tags: [yuria3]
+  tags: [yuria]
   script:
     - *EXECUTORS
     - *PARAMS_BUILD
@@ -103,7 +103,7 @@ deltablue:
 richards:
   stage: benchmark
   needs: ["build-y2"]
-  tags: [yuria2]
+  tags: [yuria]
   script:
     - *EXECUTORS
     - *PARAMS_RUN
@@ -112,7 +112,7 @@ richards:
 json:
   stage: benchmark
   needs: ["build-y3"]
-  tags: [yuria3]
+  tags: [yuria]
   script:
     - *EXECUTORS
     - *PARAMS_RUN
@@ -130,7 +130,7 @@ cd:
 havlak:
   stage: benchmark
   needs: ["build-y2"]
-  tags: [yuria2]
+  tags: [yuria]
   script:
     - *EXECUTORS
     - *PARAMS_RUN
@@ -139,7 +139,7 @@ havlak:
 bounce:
   stage: benchmark
   needs: ["build-y3"]
-  tags: [yuria3]
+  tags: [yuria]
   script:
     - *EXECUTORS
     - *PARAMS_RUN
@@ -157,7 +157,7 @@ list:
 mandelbrot:
   stage: benchmark
   needs: ["build-y2"]
-  tags: [yuria3]
+  tags: [yuria]
   script:
     - *EXECUTORS
     - *PARAMS_RUN
@@ -166,7 +166,7 @@ mandelbrot:
 nbody:
   stage: benchmark
   needs: ["build-y3"]
-  tags: [yuria3]
+  tags: [yuria]
   script:
     - *EXECUTORS
     - *PARAMS_RUN
@@ -184,7 +184,7 @@ permute:
 queens:
   stage: benchmark
   needs: ["build-y2"]
-  tags: [yuria2]
+  tags: [yuria]
   script:
     - *EXECUTORS
     - *PARAMS_RUN
@@ -193,7 +193,7 @@ queens:
 sieve:
   stage: benchmark
   needs: ["build-y3"]
-  tags: [yuria3]
+  tags: [yuria]
   script:
     - *EXECUTORS
     - *PARAMS_RUN
@@ -211,7 +211,7 @@ storage:
 towers:
   stage: benchmark
   needs: ["build-y3"]
-  tags: [yuria3]
+  tags: [yuria]
   script:
     - *EXECUTORS
     - *PARAMS_RUN
