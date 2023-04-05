@@ -25,15 +25,17 @@ variables:
       e:TruffleSOM-ast-HotspotCE-jit-main
       # e:TruffleSOM-ast-HotspotEE-jit-main
       # e:TruffleSOM-ast-NativeEE-int-main
-      e:TruffleSOM-bc-NativeEE-int-super
+      e:TruffleSOM-ast-NativeCE-int-astvsbc
+      #e:TruffleSOM-bc-NativeEE-int-super
       #
       e:TruffleSOM-bc-HotspotCE-jit-main
       # e:TruffleSOM-bc-HotspotEE-jit-main
       # e:TruffleSOM-bc-NativeEE-int-main
+      e:TruffleSOM-bc-NativeCE-int-astvsbc
       #
       # e:TruffleSOM-ast-NativeEE-int-uber
       # e:TruffleSOM-ast-NativeEE-int-super
-      e:TruffleSOM-ast-NativeEE-int-super
+      #e:TruffleSOM-ast-NativeEE-int-super
       #
       e:PySOM-ast-jit
       e:PySOM-ast-int
