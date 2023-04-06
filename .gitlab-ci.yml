@@ -74,23 +74,23 @@ build-y1:
     - cp -r scripts ~/.local/
     - rebench $PARAMS codespeed.conf all "${EXECUTORS[@]}" s:*:List
 
-build-y2:
-  stage: build
-  tags: [yuria]
-  script:
-    - *EXECUTORS
-    - *PARAMS_BUILD
-    - cp -r scripts ~/.local/
-    - rebench $PARAMS codespeed.conf all "${EXECUTORS[@]}" s:*:List
+# build-y2:
+#   stage: build
+#   tags: [yuria]
+#   script:
+#     - *EXECUTORS
+#     - *PARAMS_BUILD
+#     - cp -r scripts ~/.local/
+#     - rebench $PARAMS codespeed.conf all "${EXECUTORS[@]}" s:*:List
 
-build-y3:
-  stage: build
-  tags: [yuria]
-  script:
-    - *EXECUTORS
-    - *PARAMS_BUILD
-    - cp -r scripts ~/.local/
-    - rebench $PARAMS codespeed.conf all "${EXECUTORS[@]}" s:*:List
+# build-y3:
+#   stage: build
+#   tags: [yuria]
+#   script:
+#     - *EXECUTORS
+#     - *PARAMS_BUILD
+#     - cp -r scripts ~/.local/
+#     - rebench $PARAMS codespeed.conf all "${EXECUTORS[@]}" s:*:List
 
 
 deltablue:
@@ -104,7 +104,7 @@ deltablue:
 
 richards:
   stage: benchmark
-  needs: ["build-y2"]
+  needs: ["build-y1"]
   tags: [yuria]
   script:
     - *EXECUTORS
@@ -113,7 +113,7 @@ richards:
 
 json:
   stage: benchmark
-  needs: ["build-y3"]
+  needs: ["build-y1"]
   tags: [yuria]
   script:
     - *EXECUTORS
@@ -131,7 +131,7 @@ cd:
 
 havlak:
   stage: benchmark
-  needs: ["build-y2"]
+  needs: ["build-y1"]
   tags: [yuria]
   script:
     - *EXECUTORS
@@ -140,7 +140,7 @@ havlak:
 
 bounce:
   stage: benchmark
-  needs: ["build-y3"]
+  needs: ["build-y1"]
   tags: [yuria]
   script:
     - *EXECUTORS
@@ -158,7 +158,7 @@ list:
 
 mandelbrot:
   stage: benchmark
-  needs: ["build-y2"]
+  needs: ["build-y1"]
   tags: [yuria]
   script:
     - *EXECUTORS
@@ -167,7 +167,7 @@ mandelbrot:
 
 nbody:
   stage: benchmark
-  needs: ["build-y3"]
+  needs: ["build-y1"]
   tags: [yuria]
   script:
     - *EXECUTORS
@@ -185,7 +185,7 @@ permute:
 
 queens:
   stage: benchmark
-  needs: ["build-y2"]
+  needs: ["build-y1"]
   tags: [yuria]
   script:
     - *EXECUTORS
@@ -194,7 +194,7 @@ queens:
 
 sieve:
   stage: benchmark
-  needs: ["build-y3"]
+  needs: ["build-y1"]
   tags: [yuria]
   script:
     - *EXECUTORS
@@ -212,7 +212,7 @@ storage:
 
 towers:
   stage: benchmark
-  needs: ["build-y3"]
+  needs: ["build-y1"]
   tags: [yuria]
   script:
     - *EXECUTORS
