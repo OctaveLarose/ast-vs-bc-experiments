@@ -12,9 +12,11 @@ variables:
       # e:Java-native
       #
       e:Java-int
-      e:Java-C2-jit
+      #e:Java-C2-jit
       e:Java8-int
-      e:Java8-C2-jit
+      #e:Java8-C2-jit
+
+      e:Java20-int
 
       # e:CSOM-int
       # e:SOMpp-int
@@ -22,13 +24,13 @@ variables:
       # e:SOM-RS-bc-int
       # e:ykSOM-int
 
-      e:TruffleSOM-ast-HotspotCE-jit-main
+      #e:TruffleSOM-ast-HotspotCE-jit-main
       # e:TruffleSOM-ast-HotspotEE-jit-main
       # e:TruffleSOM-ast-NativeEE-int-main
       e:TruffleSOM-ast-NativeCE-int-astvsbc
       #e:TruffleSOM-bc-NativeEE-int-super
       #
-      e:TruffleSOM-bc-HotspotCE-jit-main
+      #e:TruffleSOM-bc-HotspotCE-jit-main
       # e:TruffleSOM-bc-HotspotEE-jit-main
       # e:TruffleSOM-bc-NativeEE-int-main
       e:TruffleSOM-bc-NativeCE-int-astvsbc
@@ -37,18 +39,18 @@ variables:
       # e:TruffleSOM-ast-NativeEE-int-super
       #e:TruffleSOM-ast-NativeEE-int-super
       #
-      e:PySOM-ast-jit
+      #e:PySOM-ast-jit
       e:PySOM-ast-int
-      e:PySOM-bc-jit
+      #e:PySOM-bc-jit
       e:PySOM-bc-int
       #
       e:Node-int
-      e:Node-jit
+      #e:Node-jit
       # e:GraalJS-HotspotEE-jit
       # e:GraalJS-NativeEE-int
       #
       # e:CPython-int
-      e:PyPy-jit
+      #e:PyPy-jit
       e:PyPy-int
       # e:GraalPython-HotspotEE-jit
       # e:GraalPython-NativeEE-int
