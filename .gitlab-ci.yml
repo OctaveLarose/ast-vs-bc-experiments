@@ -9,18 +9,6 @@ variables:
 .benchmark-settings:
   executors: &EXECUTORS |
     export EXECUTORS=(
-      # e:Java-native
-      #
-      #e:Java-int
-      #e:Java-C2-jit
-      #e:Java8-int
-      #e:Java8-C2-jit
-
-      #e:Java20-int
-
-      #e:Node-int
-      #e:Node-jit
-      
       e:TruffleSOM-ast-HotspotCE-jit
       e:TruffleSOM-ast-HotspotCE-jit-no-lower-prims
       e:TruffleSOM-ast-HotspotCE-jit-no-inline-caching
@@ -37,13 +25,29 @@ variables:
       e:TruffleSOM-bc-NativeCE-int-no-lower-prims
       e:TruffleSOM-bc-NativeCE-int-no-inline-caching
 
-      #e:PySOM-ast-jit
-      #e:PySOM-ast-jit-no-lower-prims
+      e:PySOM-ast-jit
+      e:PySOM-ast-jit-no-lower-prims
 
+      e:PySOM-ast-int
+      e:PySOM-ast-int-no-lower-prims
 
-      #e:PySOM-ast-int
-      #e:PySOM-bc-jit
-      #e:PySOM-bc-int
+      e:PySOM-bc-jit
+      e:PySOM-bc-jit-no-lower-prims
+  
+      e:PySOM-bc-int
+      e:PySOM-bc-int-no-lower-prims
+
+      # e:Java-native
+      #
+      #e:Java-int
+      #e:Java-C2-jit
+      #e:Java8-int
+      #e:Java8-C2-jit
+
+      #e:Java20-int
+
+      #e:Node-int
+      #e:Node-jit
     )
   params-build: &PARAMS_BUILD export PARAMS="-d -v -f --setup-only --disable-data-reporting"
   params-run:   &PARAMS_RUN   export PARAMS="-f --without-building"
