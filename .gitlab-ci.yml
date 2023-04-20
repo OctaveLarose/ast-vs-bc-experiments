@@ -23,15 +23,19 @@ variables:
       
       e:TruffleSOM-ast-HotspotCE-jit
       e:TruffleSOM-ast-HotspotCE-jit-no-lower-prims
+      e:TruffleSOM-ast-HotspotCE-jit-no-inline-caching
       
       e:TruffleSOM-bc-HotspotCE-jit
       e:TruffleSOM-bc-HotspotCE-jit-no-lower-prims
+      e:TruffleSOM-bc-HotspotCE-jit-no-inline-caching
 
       e:TruffleSOM-ast-NativeCE-int
       e:TruffleSOM-ast-NativeCE-int-no-lower-prims
+      e:TruffleSOM-ast-NativeCE-int-no-inline-caching
 
       e:TruffleSOM-bc-NativeCE-int
       e:TruffleSOM-bc-NativeCE-int-no-lower-prims
+      e:TruffleSOM-bc-NativeCE-int-no-inline-caching
 
       #e:PySOM-ast-jit
       #e:PySOM-ast-jit-no-lower-prims
