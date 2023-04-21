@@ -12,36 +12,48 @@ variables:
       e:TruffleSOM-ast-HotspotCE-jit
       e:TruffleSOM-ast-HotspotCE-jit-no-lower-prims
       e:TruffleSOM-ast-HotspotCE-jit-no-inline-caching
-      
+      e:TruffleSOM-ast-HotspotCE-jit-no-inlining-control-structs
+
       e:TruffleSOM-bc-HotspotCE-jit
       e:TruffleSOM-bc-HotspotCE-jit-no-lower-prims
       e:TruffleSOM-bc-HotspotCE-jit-no-inline-caching
+      e:TruffleSOM-bc-HotspotCE-jit-no-inlining-control-structs
       e:TruffleSOM-bc-HotspotCE-jit-no-quickening
       e:TruffleSOM-bc-HotspotCE-jit-no-superinstructions
 
       e:TruffleSOM-ast-NativeCE-int
       e:TruffleSOM-ast-NativeCE-int-no-lower-prims
       e:TruffleSOM-ast-NativeCE-int-no-inline-caching
+      e:TruffleSOM-ast-NativeCE-int-no-inlining-control-structs
 
       e:TruffleSOM-bc-NativeCE-int
       e:TruffleSOM-bc-NativeCE-int-no-lower-prims
       e:TruffleSOM-bc-NativeCE-int-no-inline-caching
+      e:TruffleSOM-bc-NativeCE-int-no-inlining-control-structs
       e:TruffleSOM-bc-NativeCE-int-no-quickening
       e:TruffleSOM-bc-NativeCE-int-no-superinstructions
 
       e:PySOM-ast-jit
       e:PySOM-ast-jit-no-lower-prims
-
+      e:PySOM-ast-jit-no-inline-caching
+      e:PySOM-ast-jit-no-inlining-control-structs
+      
       e:PySOM-ast-int
       e:PySOM-ast-int-no-lower-prims
+      e:PySOM-ast-int-no-inline-caching
+      e:PySOM-ast-int-no-inlining-control-structs
 
       e:PySOM-bc-jit
       e:PySOM-bc-jit-no-lower-prims
+      e:PySOM-bc-jit-no-inline-caching
+      e:PySOM-bc-jit-no-inlining-control-structs
       e:PySOM-bc-jit-no-quickening
       e:PySOM-bc-jit-no-superinstructions
 
       e:PySOM-bc-int
       e:PySOM-bc-int-no-lower-prims
+      e:PySOM-bc-int-no-inline-caching
+      e:PySOM-bc-int-no-inlining-control-structs
       e:PySOM-bc-int-no-quickening
       e:PySOM-bc-int-no-superinstructions
 
