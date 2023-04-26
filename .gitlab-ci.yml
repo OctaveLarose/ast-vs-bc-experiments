@@ -87,22 +87,28 @@ before_script:
   - git submodule update --init --recursive
 
 # cloning with ssh means not reproducible outside of our ecosystem
-init-optim-repos:
+init-optim-repos-y1:
   stage: build
-  script:
-  - cd ~/.local
-  - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-lower-prims
-  - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-inline-caching
-  - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-inlining-control-structs
-  - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-global-caching
-  - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-quickening
-  - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-superinstructions
-  - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-supernodes
+  tags: [yuria]
+  script: &INIT_OPTIM_REPOS
+  - cd /home/gitlab-runner/.local
+  - export OPTIM_NAMES=("no-lower-prims" "no-inline-caching" "no-inlining-control-structs" "no-global-caching" "no-quickening" "no-superinstructions" "no-supernodes")
+  - for opt in "${OPTIM_NAMES[@]}"; do [ ! -d "TruffleSOM-$opt" ] && git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-$opt; done
+
+init-optim-repos-y2:
+  stage: build
+  tags: [yuria2]
+  script: *INIT_OPTIM_REPOS
+
+init-optim-repos-y3:
+  stage: build
+  tags: [yuria3]
+  script: *INIT_OPTIM_REPOS
 
 build-y1:
   stage: build
   tags: [yuria]
-  needs: ["init-optim-repos"]
+  needs: ["init-optim-repos-y1"]
   script:
     - *EXECUTORS
     - *PARAMS_BUILD
@@ -112,7 +118,7 @@ build-y1:
 build-y2:
   stage: build
   tags: [yuria2]
-  needs: ["init-optim-repos"]
+  needs: ["init-optim-repos-y2"]
   script:
     - *EXECUTORS
     - *PARAMS_BUILD
@@ -122,7 +128,7 @@ build-y2:
 build-y3:
   stage: build
   tags: [yuria3]
-  needs: ["init-optim-repos"]
+  needs: ["init-optim-repos-y3"]
   script:
     - *EXECUTORS
     - *PARAMS_BUILD
