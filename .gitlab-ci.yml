@@ -90,7 +90,7 @@ before_script:
 init-optim-repos:
   stage: build
   script:
-  - cd .local
+  - cd  /home/gitlab-runner/.local
   - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-lower-prims
   - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-inline-caching
   - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-inlining-control-structs
