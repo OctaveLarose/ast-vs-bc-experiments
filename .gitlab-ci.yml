@@ -86,9 +86,23 @@ variables:
 before_script:
   - git submodule update --init --recursive
 
+# cloning with ssh means not reproducible outside of our ecosystem
+init-optim-repos:
+  stage: build
+  script:
+  - cd .local
+  - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-lower-prims
+  - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-inline-caching
+  - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-inlining-control-structs
+  - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-global-caching
+  - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-quickening
+  - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-superinstructions
+  - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-supernodes
+
 build-y1:
   stage: build
   tags: [yuria]
+  needs: ["init-optim-repos"]
   script:
     - *EXECUTORS
     - *PARAMS_BUILD
@@ -98,6 +112,7 @@ build-y1:
 build-y2:
   stage: build
   tags: [yuria2]
+  needs: ["init-optim-repos"]
   script:
     - *EXECUTORS
     - *PARAMS_BUILD
@@ -107,6 +122,7 @@ build-y2:
 build-y3:
   stage: build
   tags: [yuria3]
+  needs: ["init-optim-repos"]
   script:
     - *EXECUTORS
     - *PARAMS_BUILD
