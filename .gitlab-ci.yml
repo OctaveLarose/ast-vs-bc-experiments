@@ -9,35 +9,35 @@ variables:
 .benchmark-settings:
   executors: &EXECUTORS |
     export EXECUTORS=(
-      #e:TruffleSOM-ast-HotspotCE-jit
-      #e:TruffleSOM-ast-HotspotCE-jit-no-lower-prims
-      #e:TruffleSOM-ast-HotspotCE-jit-no-inline-caching
-      #e:TruffleSOM-ast-HotspotCE-jit-no-inlining-control-structs
-      #e:TruffleSOM-ast-HotspotCE-jit-no-global-caching
-      #e:TruffleSOM-ast-HotspotCE-jit-no-supernodes
+      e:TruffleSOM-ast-HotspotCE-jit
+      e:TruffleSOM-ast-HotspotCE-jit-no-lower-prims
+      e:TruffleSOM-ast-HotspotCE-jit-no-inline-caching
+      e:TruffleSOM-ast-HotspotCE-jit-no-inlining-control-structs
+      e:TruffleSOM-ast-HotspotCE-jit-no-global-caching
+      e:TruffleSOM-ast-HotspotCE-jit-no-supernodes
+      
+      e:TruffleSOM-bc-HotspotCE-jit
+      e:TruffleSOM-bc-HotspotCE-jit-no-lower-prims
+      e:TruffleSOM-bc-HotspotCE-jit-no-inline-caching
+      e:TruffleSOM-bc-HotspotCE-jit-no-inlining-control-structs
+      e:TruffleSOM-bc-HotspotCE-jit-no-global-caching
+      e:TruffleSOM-bc-HotspotCE-jit-no-quickening
+      e:TruffleSOM-bc-HotspotCE-jit-no-superinstructions
+
+      #e:TruffleSOM-ast-NativeCE-int
+      #e:TruffleSOM-ast-NativeCE-int-no-lower-prims
+      #e:TruffleSOM-ast-NativeCE-int-no-inline-caching
+      #e:TruffleSOM-ast-NativeCE-int-no-inlining-control-structs
+      #e:TruffleSOM-ast-NativeCE-int-no-global-caching
+      #e:TruffleSOM-ast-NativeCE-int-no-supernodes
       #
-      #e:TruffleSOM-bc-HotspotCE-jit
-      #e:TruffleSOM-bc-HotspotCE-jit-no-lower-prims
-      #e:TruffleSOM-bc-HotspotCE-jit-no-inline-caching
-      #e:TruffleSOM-bc-HotspotCE-jit-no-inlining-control-structs
-      #e:TruffleSOM-bc-HotspotCE-jit-no-global-caching
-      #e:TruffleSOM-bc-HotspotCE-jit-no-quickening
-      #e:TruffleSOM-bc-HotspotCE-jit-no-superinstructions
-
-      e:TruffleSOM-ast-NativeCE-int
-      e:TruffleSOM-ast-NativeCE-int-no-lower-prims
-      e:TruffleSOM-ast-NativeCE-int-no-inline-caching
-      e:TruffleSOM-ast-NativeCE-int-no-inlining-control-structs
-      e:TruffleSOM-ast-NativeCE-int-no-global-caching
-      e:TruffleSOM-ast-NativeCE-int-no-supernodes
-
-      e:TruffleSOM-bc-NativeCE-int
-      e:TruffleSOM-bc-NativeCE-int-no-lower-prims
-      e:TruffleSOM-bc-NativeCE-int-no-inline-caching
-      e:TruffleSOM-bc-NativeCE-int-no-inlining-control-structs
-      e:TruffleSOM-bc-NativeCE-int-no-global-caching
-      e:TruffleSOM-bc-NativeCE-int-no-quickening
-      e:TruffleSOM-bc-NativeCE-int-no-superinstructions
+      #e:TruffleSOM-bc-NativeCE-int
+      #e:TruffleSOM-bc-NativeCE-int-no-lower-prims
+      #e:TruffleSOM-bc-NativeCE-int-no-inline-caching
+      #e:TruffleSOM-bc-NativeCE-int-no-inlining-control-structs
+      #e:TruffleSOM-bc-NativeCE-int-no-global-caching
+      #e:TruffleSOM-bc-NativeCE-int-no-quickening
+      #e:TruffleSOM-bc-NativeCE-int-no-superinstructions
 
       #e:PySOM-ast-jit
       #e:PySOM-ast-jit-no-lower-prims
@@ -90,7 +90,7 @@ before_script:
 init-optim-repos:
   stage: build
   script:
-  - cd  /home/gitlab-runner/.local
+  - cd ~/.local
   - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-lower-prims
   - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-inline-caching
   - git clone git@git.cs.kent.ac.uk:sm951/trufflesom.git TruffleSOM-no-inlining-control-structs
