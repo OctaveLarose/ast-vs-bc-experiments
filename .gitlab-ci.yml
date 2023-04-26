@@ -24,20 +24,20 @@ variables:
       #e:TruffleSOM-bc-HotspotCE-jit-no-quickening
       #e:TruffleSOM-bc-HotspotCE-jit-no-superinstructions
 
-      #e:TruffleSOM-ast-NativeCE-int
-      #e:TruffleSOM-ast-NativeCE-int-no-lower-prims
-      #e:TruffleSOM-ast-NativeCE-int-no-inline-caching
-      #e:TruffleSOM-ast-NativeCE-int-no-inlining-control-structs
-      #e:TruffleSOM-ast-NativeCE-int-no-global-caching
-      #e:TruffleSOM-ast-NativeCE-int-no-supernodes
-      #
-      #e:TruffleSOM-bc-NativeCE-int
-      #e:TruffleSOM-bc-NativeCE-int-no-lower-prims
-      #e:TruffleSOM-bc-NativeCE-int-no-inline-caching
-      #e:TruffleSOM-bc-NativeCE-int-no-inlining-control-structs
-      #e:TruffleSOM-bc-NativeCE-int-no-global-caching
-      #e:TruffleSOM-bc-NativeCE-int-no-quickening
-      #e:TruffleSOM-bc-NativeCE-int-no-superinstructions
+      e:TruffleSOM-ast-NativeCE-int
+      e:TruffleSOM-ast-NativeCE-int-no-lower-prims
+      e:TruffleSOM-ast-NativeCE-int-no-inline-caching
+      e:TruffleSOM-ast-NativeCE-int-no-inlining-control-structs
+      e:TruffleSOM-ast-NativeCE-int-no-global-caching
+      e:TruffleSOM-ast-NativeCE-int-no-supernodes
+      
+      e:TruffleSOM-bc-NativeCE-int
+      e:TruffleSOM-bc-NativeCE-int-no-lower-prims
+      e:TruffleSOM-bc-NativeCE-int-no-inline-caching
+      e:TruffleSOM-bc-NativeCE-int-no-inlining-control-structs
+      e:TruffleSOM-bc-NativeCE-int-no-global-caching
+      e:TruffleSOM-bc-NativeCE-int-no-quickening
+      e:TruffleSOM-bc-NativeCE-int-no-superinstructions
 
       e:PySOM-ast-jit
       e:PySOM-ast-jit-no-lower-prims
@@ -93,6 +93,7 @@ init-optim-repos-y1:
   - cd /home/gitlab-runner/.local
   - export OPTIM_NAMES=("no-lower-prims" "no-inline-caching" "no-inlining-control-structs" "no-global-caching" "no-quickening" "no-superinstructions" "no-supernodes")
   - for opt in "${OPTIM_NAMES[@]}"; do ([ ! -d "TruffleSOM-$opt" ] && git clone https://github.com/OctaveLarose/TruffleSOM.git TruffleSOM-$opt) || true; done
+  - for opt in "${OPTIM_NAMES[@]}"; do ([ ! -d "PySOM-$opt" ] && git clone https://github.com/OctaveLarose/PySOM.git PySOM-$opt) || true; done
 
 init-optim-repos-y2:
   stage: build
