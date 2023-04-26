@@ -9,20 +9,20 @@ variables:
 .benchmark-settings:
   executors: &EXECUTORS |
     export EXECUTORS=(
-      #e:TruffleSOM-ast-HotspotCE-jit
-      #e:TruffleSOM-ast-HotspotCE-jit-no-lower-prims
-      #e:TruffleSOM-ast-HotspotCE-jit-no-inline-caching
-      #e:TruffleSOM-ast-HotspotCE-jit-no-inlining-control-structs
-      #e:TruffleSOM-ast-HotspotCE-jit-no-global-caching
-      #e:TruffleSOM-ast-HotspotCE-jit-no-supernodes
-      #
-      #e:TruffleSOM-bc-HotspotCE-jit
-      #e:TruffleSOM-bc-HotspotCE-jit-no-lower-prims
-      #e:TruffleSOM-bc-HotspotCE-jit-no-inline-caching
-      #e:TruffleSOM-bc-HotspotCE-jit-no-inlining-control-structs
-      #e:TruffleSOM-bc-HotspotCE-jit-no-global-caching
-      #e:TruffleSOM-bc-HotspotCE-jit-no-quickening
-      #e:TruffleSOM-bc-HotspotCE-jit-no-superinstructions
+      e:TruffleSOM-ast-HotspotCE-jit
+      e:TruffleSOM-ast-HotspotCE-jit-no-lower-prims
+      e:TruffleSOM-ast-HotspotCE-jit-no-inline-caching
+      e:TruffleSOM-ast-HotspotCE-jit-no-inlining-control-structs
+      e:TruffleSOM-ast-HotspotCE-jit-no-global-caching
+      e:TruffleSOM-ast-HotspotCE-jit-no-supernodes
+      
+      e:TruffleSOM-bc-HotspotCE-jit
+      e:TruffleSOM-bc-HotspotCE-jit-no-lower-prims
+      e:TruffleSOM-bc-HotspotCE-jit-no-inline-caching
+      e:TruffleSOM-bc-HotspotCE-jit-no-inlining-control-structs
+      e:TruffleSOM-bc-HotspotCE-jit-no-global-caching
+      e:TruffleSOM-bc-HotspotCE-jit-no-quickening
+      e:TruffleSOM-bc-HotspotCE-jit-no-superinstructions
 
       e:TruffleSOM-ast-NativeCE-int
       e:TruffleSOM-ast-NativeCE-int-no-lower-prims
@@ -67,17 +67,11 @@ variables:
       e:PySOM-bc-int-no-quickening
       e:PySOM-bc-int-no-superinstructions
 
-      # e:Java-native
-      #
-      #e:Java-int
-      #e:Java-C2-jit
-      #e:Java8-int
-      #e:Java8-C2-jit
+      e:Java20-int
+      e:Java20-C2-jit
 
-      #e:Java20-int
-
-      #e:Node-int
-      #e:Node-jit
+      e:Node-int
+      e:Node-jit
     )
   params-build: &PARAMS_BUILD export PARAMS="-d -v -f --setup-only --disable-data-reporting"
   params-run:   &PARAMS_RUN   export PARAMS="-f --without-building"
@@ -135,15 +129,13 @@ build-y3:
     - cp -r scripts ~/.local/
     - rebench $PARAMS codespeed.conf all "${EXECUTORS[@]}" s:*:List
 
-
-# TO RESTORE: benchmarks are meant to use PARAMS_RUN
 deltablue:
   stage: benchmark
   needs: ["build-y1"]
   tags: [yuria]
   script:
     - *EXECUTORS
-    - *PARAMS_BUILD
+    - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:DeltaBlue
 
 richards:
@@ -152,7 +144,7 @@ richards:
   tags: [yuria2]
   script:
     - *EXECUTORS
-    - *PARAMS_BUILD
+    - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Richards
 
 json:
@@ -161,7 +153,7 @@ json:
   tags: [yuria3]
   script:
     - *EXECUTORS
-    - *PARAMS_BUILD
+    - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Json
 
 cd:
@@ -170,7 +162,7 @@ cd:
   tags: [yuria]
   script:
     - *EXECUTORS
-    - *PARAMS_BUILD
+    - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:CD
 
 havlak:
@@ -179,7 +171,7 @@ havlak:
   tags: [yuria2]
   script:
     - *EXECUTORS
-    - *PARAMS_BUILD
+    - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Havlak
 
 bounce:
@@ -188,7 +180,7 @@ bounce:
   tags: [yuria3]
   script:
     - *EXECUTORS
-    - *PARAMS_BUILD
+    - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Bounce
 
 list:
@@ -197,7 +189,7 @@ list:
   tags: [yuria]
   script:
     - *EXECUTORS
-    - *PARAMS_BUILD
+    - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:List
 
 mandelbrot:
@@ -206,7 +198,7 @@ mandelbrot:
   tags: [yuria3]
   script:
     - *EXECUTORS
-    - *PARAMS_BUILD
+    - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Mandelbrot
 
 nbody:
@@ -215,7 +207,7 @@ nbody:
   tags: [yuria3]
   script:
     - *EXECUTORS
-    - *PARAMS_BUILD
+    - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:NBody
 
 permute:
@@ -224,7 +216,7 @@ permute:
   tags: [yuria]
   script:
     - *EXECUTORS
-    - *PARAMS_BUILD
+    - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Permute
 
 queens:
@@ -233,7 +225,7 @@ queens:
   tags: [yuria2]
   script:
     - *EXECUTORS
-    - *PARAMS_BUILD
+    - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Queens
 
 sieve:
@@ -242,7 +234,7 @@ sieve:
   tags: [yuria3]
   script:
     - *EXECUTORS
-    - *PARAMS_BUILD
+    - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Sieve
 
 storage:
@@ -251,7 +243,7 @@ storage:
   tags: [yuria]
   script:
     - *EXECUTORS
-    - *PARAMS_BUILD
+    - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Storage
 
 towers:
@@ -260,7 +252,7 @@ towers:
   tags: [yuria3]
   script:
     - *EXECUTORS
-    - *PARAMS_BUILD
+    - *PARAMS_RUN
     - rebench $PARAMS --experiment="CI ID $CI_PIPELINE_ID" --branch="$CI_COMMIT_REF_NAME" codespeed.conf all "${EXECUTORS[@]}" s:*:Towers
 
 report-completion:
