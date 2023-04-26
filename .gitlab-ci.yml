@@ -92,7 +92,7 @@ init-optim-repos-y1:
   script: &INIT_OPTIM_REPOS
   - cd /home/gitlab-runner/.local
   - export OPTIM_NAMES=("no-lower-prims" "no-inline-caching" "no-inlining-control-structs" "no-global-caching" "no-quickening" "no-superinstructions" "no-supernodes")
-  - for opt in "${OPTIM_NAMES[@]}"; do [ ! -d "TruffleSOM-$opt" ] && git clone https://github.com/OctaveLarose/TruffleSOM.git TruffleSOM-$opt; done
+  - for opt in "${OPTIM_NAMES[@]}"; do ([ ! -d "TruffleSOM-$opt" ] && git clone https://github.com/OctaveLarose/TruffleSOM.git TruffleSOM-$opt) || true; done
 
 init-optim-repos-y2:
   stage: build
