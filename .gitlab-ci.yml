@@ -9,12 +9,12 @@ variables:
 .benchmark-settings:
   executors: &EXECUTORS |
     export EXECUTORS=(
-      #e:TruffleSOM-ast-HotspotCE-jit
-      #e:TruffleSOM-ast-HotspotCE-jit-no-lower-prims
-      #e:TruffleSOM-ast-HotspotCE-jit-no-inline-caching
-      #e:TruffleSOM-ast-HotspotCE-jit-no-inlining-control-structs
-      #e:TruffleSOM-ast-HotspotCE-jit-no-global-caching
-      #e:TruffleSOM-ast-HotspotCE-jit-no-supernodes
+      e:TruffleSOM-ast-HotspotCE-jit
+      e:TruffleSOM-ast-HotspotCE-jit-no-lower-prims
+      e:TruffleSOM-ast-HotspotCE-jit-no-inline-caching
+      e:TruffleSOM-ast-HotspotCE-jit-no-inlining-control-structs
+      e:TruffleSOM-ast-HotspotCE-jit-no-global-caching
+      e:TruffleSOM-ast-HotspotCE-jit-no-supernodes
       #
       #e:TruffleSOM-bc-HotspotCE-jit
       #e:TruffleSOM-bc-HotspotCE-jit-no-lower-prims
@@ -24,12 +24,12 @@ variables:
       #e:TruffleSOM-bc-HotspotCE-jit-no-quickening
       #e:TruffleSOM-bc-HotspotCE-jit-no-superinstructions
       #
-      #e:TruffleSOM-ast-NativeCE-int
-      #e:TruffleSOM-ast-NativeCE-int-no-lower-prims
-      #e:TruffleSOM-ast-NativeCE-int-no-inline-caching
-      #e:TruffleSOM-ast-NativeCE-int-no-inlining-control-structs
-      #e:TruffleSOM-ast-NativeCE-int-no-global-caching
-      #e:TruffleSOM-ast-NativeCE-int-no-supernodes
+      e:TruffleSOM-ast-NativeCE-int
+      e:TruffleSOM-ast-NativeCE-int-no-lower-prims
+      e:TruffleSOM-ast-NativeCE-int-no-inline-caching
+      e:TruffleSOM-ast-NativeCE-int-no-inlining-control-structs
+      e:TruffleSOM-ast-NativeCE-int-no-global-caching
+      e:TruffleSOM-ast-NativeCE-int-no-supernodes
       #
       #e:TruffleSOM-bc-NativeCE-int
       #e:TruffleSOM-bc-NativeCE-int-no-lower-prims
@@ -67,10 +67,10 @@ variables:
       #e:PySOM-bc-int-no-quickening
       #e:PySOM-bc-int-no-superinstructions
       #
-      e:Java20-int
-      e:Java20-C2-jit
-      e:Node-int
-      e:Node-jit
+      #e:Java20-int
+      #e:Java20-C2-jit
+      #e:Node-int
+      #e:Node-jit
     )
   params-build: &PARAMS_BUILD export PARAMS="-d -v -f --setup-only --disable-data-reporting"
   params-run:   &PARAMS_RUN   export PARAMS="-f --without-building"
