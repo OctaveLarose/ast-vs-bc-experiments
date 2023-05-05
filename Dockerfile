@@ -1,8 +1,12 @@
 FROM ubuntu:20.04
 
-ARG DEBIAN_FRONTEND=noninteractive # because dpkg is annoying
+# because dpkg is annoying
+ARG DEBIAN_FRONTEND=noninteractive 
 
-RUN apt update && apt-get install -y sudo python python3-pip git nodejs wget ant libasound2 \
+# to use source for nvm
+SHELL ["/bin/bash", "-c"]
+
+RUN apt update && apt-get install -y sudo python python3-pip git curl wget ant libasound2 \
       libasound2-data libc6-i386 libc6-x32 libfreetype6 libpng16-16 libxi6 libxrender1 libxtst6 x11-common openjdk-17-jdk
 RUN pip install rebench
 
@@ -15,13 +19,15 @@ RUN wget https://github.com/adoptium/temurin20-binaries/releases/download/jdk-20
 RUN tar -xvf OpenJDK20U-jdk_x64_linux_hotspot_20.0.1_9.tar.gz
 RUN cp -r jdk-20.0.1+9 /usr/lib/jvm/temurin-20-jdk-amd64
 
+# Node stuff
+RUN (curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash) && . ~/.nvm/nvm.sh && nvm install v17.9.0
+
 
 RUN cd /home && git clone https://github.com/OctaveLarose/ast-vs-bc-experiments.git
 RUN cd /home/ast-vs-bc-experiments && git submodule update --init
 
 RUN cd /home/ast-vs-bc-experiments && ./build_executors.sh "/home/gitlab-runner/.local"  
 
-#RUN export PARAMS="-f --without-building" 
-RUN export PARAMS="-d -v -f --setup-only --disable-data-reporting"
-RUN cd /home/ast-vs-bc-experiments && rebench $PARAMS --experiment="Every optim removed individually" codespeed.conf all
-#RUN cat rebench.data
+#RUN cd /home/ast-vs-bc-experiments && rebench -d -v -f --setup-only --disable-data-reporting --experiment="Just building" codespeed.conf all
+#RUN cd /home/ast-vs-bc-experiments && rebench -f --without-building --experiment="Every optim removed individually" codespeed.conf all
+# #RUN cat rebench.data
