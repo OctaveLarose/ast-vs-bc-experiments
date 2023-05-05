@@ -8,6 +8,8 @@ export OPTIM_NAMES=("no-lower-prims" "no-inline-caching" "no-inlining-control-st
 
 # base versions
 git clone https://github.com/OctaveLarose/TruffleSOM.git
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
+export LANG=en_GB.UTF-8
 pushd TruffleSOM; ant libs && ant compile; popd
 
 git clone https://github.com/OctaveLarose/PySOM.git
