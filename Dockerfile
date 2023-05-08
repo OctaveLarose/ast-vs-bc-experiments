@@ -5,6 +5,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # to use source for nvm
 SHELL ["/bin/bash", "-c"]
+ENV LANG=en_GB.UTF-8
+ENV LC_ALL=en_GB.UTF-8
 
 RUN apt update && apt-get install -y sudo python python3-pip git curl wget ant libasound2 \
       libasound2-data libc6-i386 libc6-x32 libfreetype6 libpng16-16 libxi6 libxrender1 libxtst6 x11-common openjdk-17-jdk
@@ -13,6 +15,10 @@ RUN pip install rebench
 RUN mkdir -p /home/gitlab-runner/.local
 RUN wget https://downloads.python.org/pypy/pypy2.7-v7.3.9-src.tar.bz2
 RUN tar -xvf pypy2.7-v7.3.9-src.tar.bz2 -C /home/gitlab-runner/.local
+# building pypy from source takes too long, so we get the prebuilt
+RUN wget https://downloads.python.org/pypy/pypy2.7-v7.3.9-linux64.tar.bz2 
+RUN tar -xvf pypy2.7-v7.3.9-linux64.tar.bz2 -C /home/gitlab-runner/.local
+RUN ln -s /home/gitlab-runner/.local/pypy2.7-v7.3.9-linux64/bin/pypy /usr/local/bin/pypy
 
 # JDK20 stuff
 RUN wget https://github.com/adoptium/temurin20-binaries/releases/download/jdk-20.0.1%2B9/OpenJDK20U-jdk_x64_linux_hotspot_20.0.1_9.tar.gz
@@ -24,7 +30,6 @@ RUN (curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | 
 
 
 RUN cd /home/gitlab-runner && git clone https://github.com/OctaveLarose/ast-vs-bc-experiments.git
-RUN cd /home/gitlab-runner/ast-vs-bc-experiments && git checkout ast-vs-bc
 RUN cd /home/gitlab-runner/ast-vs-bc-experiments && git submodule update --init
 RUN cd /home/gitlab-runner/ast-vs-bc-experiments && ./build_executors.sh "/home/gitlab-runner/.local"  
 
