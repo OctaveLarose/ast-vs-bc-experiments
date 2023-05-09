@@ -6,10 +6,10 @@ ARG DEBIAN_FRONTEND=noninteractive
 # to use source for nvm
 SHELL ["/bin/bash", "-c"]
 ENV LANG=en_GB.UTF-8
-ENV LC_ALL=en_GB.UTF-8
+ENV JAVA_TOOL_OPTIONS -Dfile.encoding=UTF8
 
 RUN apt update && apt-get install -y sudo python python3-pip git curl wget ant libasound2 \
-      libasound2-data libc6-i386 libc6-x32 libfreetype6 libpng16-16 libxi6 libxrender1 libxtst6 x11-common openjdk-17-jdk
+      libasound2-data libc6-i386 libc6-x32 libfreetype6 libpng16-16 libxi6 libxrender1 libxtst6 x11-common openjdk-17-jdk pkg-config libffi-dev
 RUN pip install rebench
 
 RUN mkdir -p /home/gitlab-runner/.local
