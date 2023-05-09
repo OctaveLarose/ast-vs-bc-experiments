@@ -5,13 +5,15 @@ build_baselines() {
     git clone https://github.com/OctaveLarose/TruffleSOM.git
     export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
     export LANG=en_GB.UTF-8
+    export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
+
     pushd TruffleSOM 
     git checkout 64ffec11a782d729ecfdf9c50c3b07f99e96349f
     ant libs && ant compile
     popd
 
     git clone https://github.com/OctaveLarose/PySOM.git
-    pushd PySOM 
+    pushd PySOM
     git checkout c98d42786fc5f769dbe9e508eb7af4b54a33a2c8
     ln -s $1/pypy2.7-v7.3.9-src pypy
     popd 
@@ -28,6 +30,7 @@ build_tsom() {
 build_pysom() {
     git clone https://github.com/OctaveLarose/PySOM.git PySOM-$1
     pushd PySOM-$1
+    git fetch --all && git checkout -f $2 && git submodule update -f --init --recursive
     rm -rf pypy && ln -s $1/pypy2.7-v7.3.9-src pypy
     popd
 }
