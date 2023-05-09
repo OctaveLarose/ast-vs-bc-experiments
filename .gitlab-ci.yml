@@ -105,7 +105,6 @@ build-y1:
   script:
     - *EXECUTORS
     - *PARAMS_BUILD
-    - cp -r scripts ~/.local/
     - rebench $PARAMS codespeed.conf all "${EXECUTORS[@]}" s:*:List
 
 build-y2:
@@ -115,7 +114,6 @@ build-y2:
   script:
     - *EXECUTORS
     - *PARAMS_BUILD
-    - cp -r scripts ~/.local/
     - rebench $PARAMS codespeed.conf all "${EXECUTORS[@]}" s:*:List
 
 build-y3:
@@ -125,7 +123,6 @@ build-y3:
   script:
     - *EXECUTORS
     - *PARAMS_BUILD
-    - cp -r scripts ~/.local/
     - rebench $PARAMS codespeed.conf all "${EXECUTORS[@]}" s:*:List
 
 deltablue:
