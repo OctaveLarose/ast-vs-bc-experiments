@@ -20,7 +20,7 @@ build_baselines() {
 }
 
 build_tsom() {
-    git clone https://github.com/OctaveLarose/TruffleSOM.git TruffleSOM-$1
+    ([ ! -d "TruffleSOM-$1" ] && git clone https://github.com/OctaveLarose/TruffleSOM.git TruffleSOM-$1) || true
     pushd TruffleSOM-$1
     git fetch --all && git checkout -f $2 && git submodule update -f --init --recursive
     rm -rf libs && ln -sf $1/TruffleSOM/libs
@@ -28,7 +28,7 @@ build_tsom() {
 }
 
 build_pysom() {
-    git clone https://github.com/OctaveLarose/PySOM.git PySOM-$1
+    ([ ! -d "PySOM-$1" ] && git clone https://github.com/OctaveLarose/PySOM.git PySOM-$1) || true
     pushd PySOM-$1
     git fetch --all && git checkout -f $2 && git submodule update -f --init --recursive
     rm -rf pypy && ln -s $1/pypy2.7-v7.3.9-src pypy
