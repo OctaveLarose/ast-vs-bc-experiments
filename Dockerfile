@@ -30,9 +30,10 @@ RUN (curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | 
 
 
 RUN cd /home/gitlab-runner && git clone https://github.com/OctaveLarose/ast-vs-bc-experiments.git
+RUN cd /home/gitlab-runner/ast-vs-bc-experiments && git checkout ast-vs-bc
 RUN cd /home/gitlab-runner/ast-vs-bc-experiments && git submodule update --init
 RUN cd /home/gitlab-runner/ast-vs-bc-experiments && ./build_executors.sh "/home/gitlab-runner/.local"  
 
-#RUN cd /home/gitlab-runner/ast-vs-bc-experiments && rebench -d -v -f --setup-only --disable-data-reporting --experiment="Just building" codespeed.conf all s:*:List
-#RUN cd /home/ast-vs-bc-experiments && rebench -f --without-building --experiment="Every optim removed individually" codespeed.conf all
+RUN cd /home/gitlab-runner/ast-vs-bc-experiments && rebench -d -v -f --setup-only --disable-data-reporting --experiment="Just building" codespeed.conf all s:*:List
+RUN cd /home/ast-vs-bc-experiments && rebench -f --without-building --experiment="Every optim removed individually" codespeed.conf all
 # #RUN cat rebench.data

@@ -83,7 +83,7 @@ init-optim-repos-y1:
   stage: build
   tags: [yuria]
   script: &INIT_OPTIM_REPOS
-  - ./build_executors.sh "/home/gitlab-runner/.local"  
+  - ./build_executors.sh "/home/gitlab-runner/.local"
 
 init-optim-repos-y2:
   stage: build

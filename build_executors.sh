@@ -22,7 +22,7 @@ build_baselines() {
 build_tsom() {
     ([ ! -d "TruffleSOM-$1" ] && git clone https://github.com/OctaveLarose/TruffleSOM.git TruffleSOM-$1) || true
     pushd TruffleSOM-$1
-    git fetch --all && git checkout -f $2
+    git fetch --all && git checkout -f $2 && git submodule update -f --init --recursive
     rm -rf libs && ln -sf $3/TruffleSOM/libs
     popd
 }
