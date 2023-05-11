@@ -46,7 +46,7 @@ build_baselines
 
 build_tsom "no-lower-prims" "86c4856f1392bdda76162d97d19a2d8116d3631b" $1
 build_tsom "no-inline-caching" "60ae3e508e68e87d358222102c3b2a8c67de11d0" $1
-build_tsom "no-inlining-control-structs" "b98d12efa020ebe027c2ba39a16d6d7431146f6d" $1
+build_tsom "no-inlining-control-structs" "862fbf7cc26732fefd5b80f925eeb9933a0e6a05" $1
 build_tsom "no-global-caching" "8f6e5fb5e5abc17fd68e28f8dc332fc0b560036c" $1
 build_tsom "no-quickening" "cf0f4bb9b6601a6e8330ad68c3ea40ed4f269f57" $1
 build_tsom "no-superinstructions" "1b8cebeaf920072f8583471f517c7a08421a0a9a" $1
