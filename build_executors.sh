@@ -3,7 +3,10 @@
 # build base versions and their libs
 build_baselines() {
     git clone https://github.com/OctaveLarose/TruffleSOM.git
+
+    # some of these flags may be overkill
     export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
+    export PATH=/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
     export LANG=en_GB.UTF-8
     export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
 
