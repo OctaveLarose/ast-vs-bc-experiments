@@ -34,5 +34,5 @@ RUN cd /home/gitlab-runner/ast-vs-bc-experiments && git submodule update --init
 RUN cd /home/gitlab-runner/ast-vs-bc-experiments && ./build_executors.sh "/home/gitlab-runner/.local"  
 
 RUN cd /home/gitlab-runner/ast-vs-bc-experiments && rebench -d -v -f --setup-only --disable-data-reporting --experiment="Just building" codespeed.conf all s:*:List
-RUN cd /home/gitlab-runner/ast-vs-bc-experiments && rebench -f --without-building --experiment="Every optim removed individually" codespeed.conf all; true
+RUN cd /home/gitlab-runner/ast-vs-bc-experiments && rebench -f --without-building --experiment="Every optim removed individually" codespeed.conf all
 # #RUN cat /home/gitlab-runner/ast-vs-bc-experiments/rebench.data
