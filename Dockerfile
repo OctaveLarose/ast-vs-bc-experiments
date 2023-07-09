@@ -8,6 +8,9 @@ SHELL ["/bin/bash", "-c"]
 ENV LANG=en_GB.UTF-8
 ENV JAVA_TOOL_OPTIONS -Dfile.encoding=UTF8
 
+# make sure the AWFY submodule is pulled before running the dockerfile
+ADD . /home/gitlab-runner/ast-vs-bc-experiments
+
 RUN apt update && apt-get install -y sudo python python3-pip git curl wget ant libasound2 \
       libasound2-data libc6-i386 libc6-x32 libfreetype6 libpng16-16 libxi6 libxrender1 libxtst6 x11-common openjdk-17-jdk pkg-config libffi-dev
 RUN pip install rebench
@@ -28,10 +31,8 @@ RUN cp -r jdk-20.0.1+9 /usr/lib/jvm/temurin-20-jdk-amd64
 # Node stuff
 RUN (curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash) && . ~/.nvm/nvm.sh && nvm install v17.9.0
 
-
-RUN cd /home/gitlab-runner && git clone https://github.com/OctaveLarose/ast-vs-bc-experiments.git
 RUN cd /home/gitlab-runner/ast-vs-bc-experiments && git submodule update --init
-RUN cd /home/gitlab-runner/ast-vs-bc-experiments && ./build_executors.sh "/home/gitlab-runner/.local"  
+RUN cd /home/gitlab-runner/ast-vs-bc-experiments && ./build_all_tsom_pysom_executors.sh "/home/gitlab-runner/.local"  
 
 RUN cd /home/gitlab-runner/ast-vs-bc-experiments && rebench -d -v -f --setup-only --disable-data-reporting --experiment="Just building" codespeed.conf all s:*:List
 RUN cd /home/gitlab-runner/ast-vs-bc-experiments && rebench -f --without-building --experiment="Every optim removed individually" codespeed.conf all
