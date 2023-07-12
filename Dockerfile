@@ -10,11 +10,16 @@ ENV JAVA_TOOL_OPTIONS -Dfile.encoding=UTF8
 
 # if running from git repo, make sure the AWFY submodule is initialized/updated before running the dockerfile.
 # this is better for testing.
-ADD . /home/gitlab-runner/ast-vs-bc-experiments
+#ADD . /home/gitlab-runner/ast-vs-bc-experiments
 
 RUN apt update && apt-get install -y sudo python python3-pip git curl wget ant libasound2 \
-      libasound2-data libc6-i386 libc6-x32 libfreetype6 libpng16-16 libxi6 libxrender1 libxtst6 x11-common openjdk-17-jdk pkg-config libffi-dev r-base r-base-dev
+      libasound2-data libc6-i386 libc6-x32 libfreetype6 libpng16-16 libxi6 libxrender1 libxtst6 x11-common openjdk-17-jdk pkg-config libffi-dev
 RUN pip install rebench
+
+# Installing R.
+RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo gpg --dearmor -o /usr/share/keyrings/r-project.gpg
+RUN echo "deb [signed-by=/usr/share/keyrings/r-project.gpg] https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" | sudo tee -a /etc/apt/sources.list.d/r-project.list
+RUN apt update && apt install --no-install-recommends r-base
 
 RUN mkdir -p /home/gitlab-runner/.local
 RUN wget https://downloads.python.org/pypy/pypy2.7-v7.3.9-src.tar.bz2
@@ -32,5 +37,10 @@ RUN cp -r jdk-20.0.1+9 /usr/lib/jvm/temurin-20-jdk-amd64
 # Node stuff
 RUN (curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash) && . ~/.nvm/nvm.sh && nvm install v17.9.0
 
+RUN mkdir /home/gitlab-runner
+RUN cd /home/gitlab-runner && git clone https://github.com/OctaveLarose/ast-vs-bc-experiments/
+
 WORKDIR /home/gitlab-runner/ast-vs-bc-experiments
-RUN ./build/init_all_tsom_pysom_executors.sh "/home/gitlab-runner/.local"  
+RUN git submdoule update --init
+RUN cd awfy/report/bc-vs-ast && Rscript scripts/libraries.R
+RUN ./build/init_all_tsom_pysom_executors.sh "/home/gitlab-runner/.local"
