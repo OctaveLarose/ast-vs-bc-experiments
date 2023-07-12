@@ -10,7 +10,7 @@ ENV JAVA_TOOL_OPTIONS -Dfile.encoding=UTF8
 
 # if running from git repo, make sure the AWFY submodule is initialized/updated before running the dockerfile.
 # this is better for testing.
-ADD . /home/gitlab-runner/ast-vs-bc-experiments
+#ADD . /home/gitlab-runner/ast-vs-bc-experiments
 
 RUN apt update && apt-get install -y sudo python python3-pip git curl wget ant libasound2 \
       libasound2-data libc6-i386 libc6-x32 libfreetype6 libpng16-16 libxi6 libxrender1 libxtst6 x11-common openjdk-17-jdk pkg-config libffi-dev r-base
@@ -37,7 +37,6 @@ RUN cp -r jdk-20.0.1+9 /usr/lib/jvm/temurin-20-jdk-amd64
 # Node stuff
 RUN (curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash) && . ~/.nvm/nvm.sh && nvm install v17.9.0
 
-RUN mkdir /home/gitlab-runner
 RUN cd /home/gitlab-runner && git clone https://github.com/OctaveLarose/ast-vs-bc-experiments/
 
 WORKDIR /home/gitlab-runner/ast-vs-bc-experiments
