@@ -40,6 +40,6 @@ RUN (curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | 
 RUN cd /home/gitlab-runner && git clone https://github.com/OctaveLarose/ast-vs-bc-experiments/
 
 WORKDIR /home/gitlab-runner/ast-vs-bc-experiments
-RUN git submdoule update --init
-RUN cd awfy/report/bc-vs-ast && Rscript scripts/libraries.R
+RUN git submodule update --init
+#RUN cd awfy/report/bc-vs-ast && Rscript scripts/libraries.R
 RUN ./build/init_all_tsom_pysom_executors.sh "/home/gitlab-runner/.local"
