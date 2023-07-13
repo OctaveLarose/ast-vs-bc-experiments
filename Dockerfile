@@ -10,7 +10,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt-get install -y sudo python python3-pip git curl wget ant libasound2 \
       libasound2-data libc6-i386 libc6-x32 libfreetype6 libpng16-16 libxi6 libxrender1 libxtst6 \
       libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev \
-      x11-common openjdk-17-jdk pkg-config libffi-dev libfontconfig1-dev pandoc gfortran
+      x11-common openjdk-17-jdk pkg-config libffi-dev libfontconfig1-dev pandoc gfortran \
+      time
 RUN pip install rebench
 
 # Installing R.
@@ -36,7 +37,7 @@ RUN cp -r jdk-20.0.1+9 /usr/lib/jvm/temurin-20-jdk-amd64
 SHELL ["/bin/bash", "-c"]
 RUN (curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash) && . ~/.nvm/nvm.sh && nvm install v17.9.0
 
-RUN cd /home/gitlab-runner && git clone https://github.com/OctaveLarose/ast-vs-bc-experiments/
+RUN cd /home/gitlab-runner && git clone -b exp https://github.com/smarr/ast-vs-bc-experiments.git
 
 WORKDIR /home/gitlab-runner/ast-vs-bc-experiments
 RUN git submodule update --init
