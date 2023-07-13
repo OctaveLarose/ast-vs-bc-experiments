@@ -3,11 +3,6 @@ FROM ubuntu:20.04
 # because dpkg is annoying
 ARG DEBIAN_FRONTEND=noninteractive 
 
-# to use "source" (aka ".") for nvm
-SHELL ["/bin/bash", "-c"]
-ENV LANG=en_GB.UTF-8
-ENV JAVA_TOOL_OPTIONS -Dfile.encoding=UTF8
-
 # if running from git repo, make sure the AWFY submodule is initialized/updated before running the dockerfile.
 # this is better for testing.
 #ADD . /home/gitlab-runner/ast-vs-bc-experiments
@@ -37,11 +32,19 @@ RUN tar -xvf OpenJDK20U-jdk_x64_linux_hotspot_20.0.1_9.tar.gz
 RUN cp -r jdk-20.0.1+9 /usr/lib/jvm/temurin-20-jdk-amd64
 
 # Node stuff
+# to use "source" (aka ".") for nvm
+SHELL ["/bin/bash", "-c"]
 RUN (curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash) && . ~/.nvm/nvm.sh && nvm install v17.9.0
 
 RUN cd /home/gitlab-runner && git clone https://github.com/OctaveLarose/ast-vs-bc-experiments/
 
 WORKDIR /home/gitlab-runner/ast-vs-bc-experiments
 RUN git submodule update --init
+
+# Set locale to C.UTF-8 to avoid issues with Java and R
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+ENV JAVA_TOOL_OPTIONS -Dfile.encoding=UTF8
+
 RUN cd awfy/report/bc-vs-ast/scripts && Rscript libraries.R
 RUN ./build/init_all_tsom_pysom_executors.sh "/home/gitlab-runner/.local"
