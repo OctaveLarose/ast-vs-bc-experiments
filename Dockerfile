@@ -40,6 +40,7 @@ RUN cd /home/gitlab-runner && git clone https://github.com/OctaveLarose/ast-vs-b
 
 WORKDIR /home/gitlab-runner/ast-vs-bc-experiments
 RUN git submodule update --init
+RUN rm Dockerfile .dockerignore
 
 # Set locale to C.UTF-8 to avoid issues with Java and R
 ENV LANG=C.UTF-8

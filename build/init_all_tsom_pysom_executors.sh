@@ -12,12 +12,14 @@ init_baselines() {
 
     pushd TruffleSOM 
     git checkout 64ffec11a782d729ecfdf9c50c3b07f99e96349f
+    rm -rf .git
     ant libs && ant compile
     popd
 
     git clone https://github.com/OctaveLarose/PySOM.git
     pushd PySOM
     git checkout c98d42786fc5f769dbe9e508eb7af4b54a33a2c8
+    rm -rf .git
     ln -s $1/pypy2.7-v7.3.9-src pypy
     popd 
 }
@@ -27,6 +29,7 @@ init_tsom() {
     pushd TruffleSOM-$1
     git fetch --all && git checkout -f $2 && git submodule update -f --init --recursive
     rm -rf libs && ln -sf $3/TruffleSOM/libs
+    rm -rf .git
     popd
 }
 
@@ -35,6 +38,7 @@ init_pysom() {
     pushd PySOM-$1
     git fetch --all && git checkout -f $2 && git submodule update -f --init --recursive
     rm -rf pypy && ln -s $3/pypy2.7-v7.3.9-src pypy
+    rm -rf .git
     popd
 }
 
