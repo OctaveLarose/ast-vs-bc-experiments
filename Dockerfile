@@ -13,7 +13,9 @@ ENV JAVA_TOOL_OPTIONS -Dfile.encoding=UTF8
 #ADD . /home/gitlab-runner/ast-vs-bc-experiments
 
 RUN apt update && apt-get install -y sudo python python3-pip git curl wget ant libasound2 \
-      libasound2-data libc6-i386 libc6-x32 libfreetype6 libpng16-16 libxi6 libxrender1 libxtst6 x11-common openjdk-17-jdk pkg-config libffi-dev r-base
+      libasound2-data libc6-i386 libc6-x32 libfreetype6 libpng16-16 libxi6 libxrender1 libxtst6 \
+      libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev \
+      x11-common openjdk-17-jdk pkg-config libffi-dev r-base libfontconfig1-dev
 RUN pip install rebench
 
 # Installing R.
@@ -41,5 +43,5 @@ RUN cd /home/gitlab-runner && git clone https://github.com/OctaveLarose/ast-vs-b
 
 WORKDIR /home/gitlab-runner/ast-vs-bc-experiments
 RUN git submodule update --init
-#RUN cd awfy/report/bc-vs-ast && Rscript scripts/libraries.R
+RUN cd awfy/report/bc-vs-ast/scripts && Rscript libraries.R
 RUN ./build/init_all_tsom_pysom_executors.sh "/home/gitlab-runner/.local"
