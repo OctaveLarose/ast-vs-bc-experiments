@@ -10,7 +10,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt-get install -y sudo python python3-pip git curl wget ant libasound2 \
       libasound2-data libc6-i386 libc6-x32 libfreetype6 libpng16-16 libxi6 libxrender1 libxtst6 \
       libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev \
-      x11-common openjdk-17-jdk pkg-config libffi-dev libfontconfig1-dev
+      x11-common openjdk-17-jdk pkg-config libffi-dev libfontconfig1-dev pandoc
 RUN pip install rebench
 
 # Installing R.
@@ -48,3 +48,4 @@ ENV JAVA_TOOL_OPTIONS -Dfile.encoding=UTF8
 
 RUN cd awfy/report/bc-vs-ast/scripts && Rscript libraries.R
 RUN ./build/init_all_tsom_pysom_executors.sh "/home/gitlab-runner/.local"
+RUN rebench -d -v -f --setup-only ast-vs-bc.conf all s:*:List
