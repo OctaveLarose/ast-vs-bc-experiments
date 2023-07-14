@@ -37,7 +37,7 @@ RUN cp -r jdk-20.0.1+9 /usr/lib/jvm/temurin-20-jdk-amd64
 SHELL ["/bin/bash", "-c"]
 RUN (curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash) && . ~/.nvm/nvm.sh && nvm install v17.9.0
 
-RUN cd /home/gitlab-runner && git clone -b exp https://github.com/smarr/ast-vs-bc-experiments.git
+RUN cd /home/gitlab-runner && git clone https://github.com/OctaveLarose/ast-vs-bc-experiments/
 
 WORKDIR /home/gitlab-runner/ast-vs-bc-experiments
 RUN git submodule update --init
