@@ -12,7 +12,7 @@ RUN apt update && apt-get install -y sudo python python3-pip git curl wget ant l
       libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev \
       x11-common openjdk-17-jdk pkg-config libffi-dev libfontconfig1-dev pandoc gfortran \
       time
-RUN pip install rebench
+RUN pip install git+https://github.com/smarr/rebench.git
 
 # Installing R.
 RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo gpg --dearmor -o /usr/share/keyrings/r-project.gpg
@@ -51,3 +51,4 @@ ENV JAVA_TOOL_OPTIONS -Dfile.encoding=UTF8
 RUN cd awfy/report/bc-vs-ast/scripts && Rscript libraries.R
 RUN ./build/init_all_tsom_pysom_executors.sh "/home/gitlab-runner/.local"
 RUN rebench -d -v -f --setup-only ast-vs-bc.conf everything s:*:List
+RUN rm -f benchmark.data
