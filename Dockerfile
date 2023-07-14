@@ -51,3 +51,4 @@ ENV JAVA_TOOL_OPTIONS -Dfile.encoding=UTF8
 RUN cd awfy/report/bc-vs-ast/scripts && Rscript libraries.R
 RUN ./build/init_all_tsom_pysom_executors.sh "/home/gitlab-runner/.local"
 RUN rebench -d -v -f --setup-only ast-vs-bc.conf everything s:*:List
+RUN rm -f benchmark.data
