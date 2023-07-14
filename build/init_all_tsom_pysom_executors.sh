@@ -11,14 +11,16 @@ init_baselines() {
     export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
 
     pushd TruffleSOM 
-    git checkout 64ffec11a782d729ecfdf9c50c3b07f99e96349f
+    git checkout 64ffec11a782d729ecfdf9c50c3b07f99e96349f  && git submodule update -f --init --recursive
     ant libs && ant compile
+    rm -rf .git
     popd
 
     git clone https://github.com/OctaveLarose/PySOM.git
     pushd PySOM
-    git checkout c98d42786fc5f769dbe9e508eb7af4b54a33a2c8
+    git checkout c98d42786fc5f769dbe9e508eb7af4b54a33a2c8  && git submodule update -f --init --recursive
     ln -s $1/pypy2.7-v7.3.9-src pypy
+    rm -rf .git
     popd 
 }
 
