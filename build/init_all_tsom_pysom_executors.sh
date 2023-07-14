@@ -58,7 +58,7 @@ init_tsom "no-supernodes" "a7a2bc985bc695b116a97dda79b5c92c873507cb" $1 &
 
 init_pysom "no-lower-prims" "b5f7cc0d5d8e39455ed10a50b86e261e7f567902" $1 &
 init_pysom "no-inline-caching" "2f87d6c1ac9c3b6895971ed24a6cda18c4240c0b" $1 &
-init_pysom "no-inlining-control-structs" "fd8870af33af78eac87ddee4a49905cf0fcc3552" $1 &
+init_pysom "no-inlining-control-structs" "fc7bc28da0681dfbf6f4760ab61e600edf8e496c" $1 &
 init_pysom "no-global-caching" "6b4e7af2f66439761b4dd641a2121949e72933b7" $1 &
 init_pysom "no-quickening" "1c64ed989f25a0e08c8bc2716a75f642f6348fe5" $1 &
 init_pysom "no-superinstructions" "f0398a3d971dea12e287bec04f749159170e2ff1" $1 &
