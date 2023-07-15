@@ -265,5 +265,6 @@ sudo dockerd --storage-opt dm.basesize=50G
 ```
 
 See for details:
- - https://docs.docker.com/engine/reference/commandline/dockerd/
- - https://guide.blazemeter.com/hc/en-us/articles/13315147022481
+
+  - https://docs.docker.com/engine/reference/commandline/dockerd/
+  - https://guide.blazemeter.com/hc/en-us/articles/13315147022481
