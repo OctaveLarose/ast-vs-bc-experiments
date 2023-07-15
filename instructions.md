@@ -51,6 +51,7 @@ We provide both a complete setup to run all of our experiments, which may take 6
 After executing `docker run` as given above, once one exits the bash shell, it can be accessed again with `docker start -i --attach ast-vs-bc`.
 
 Artifact download details:
+
  - Primary Download: [10.5281/zenodo.8147415](https://doi.org/10.5281/zenodo.8147415)
  - Temporary Backup URL: [https://www.cs.kent.ac.uk/people/staff/sm951/tmp/ast-vs-bc.tar.gz](https://www.cs.kent.ac.uk/people/staff/sm951/tmp/ast-vs-bc.tar.gz)
  - MD5 Checksum: `684dfe92b814b53d06368ce008cf71be`
@@ -90,7 +91,7 @@ To expand on the *Getting Started Guide*, in the following we will outline the s
 
 ### Full Run, Reproducing our Complete Data Set
 
-Since running the benchmarks takes a long time, we recommend to consider already add the new experiment, as described in the next section. While this won't be relevant to reproduce our results and verify our claims, it avoids running everything twice.
+Since running the benchmarks takes a long time, we recommend to consider already adding the new experiment, as described in the next section. While this won't be relevant to reproduce our results and verify our claims, it avoids running everything twice.
 
 For the full run, we assume the *Getting Started Guide* was followed.
 
@@ -218,6 +219,11 @@ The online documentation has the following relevant pages:
   - [Command line usage](https://rebench.readthedocs.io/en/latest/usage/)
   - [Configuration format](https://rebench.readthedocs.io/en/latest/config/)
   - [Glossary/Basic concepts](https://rebench.readthedocs.io/en/latest/concepts/)
+
+In essence, ReBench is a tool to compose command lines, which are then executed and the output is parsed to extract the performance measurements.
+
+To know the exact command line that are executed, ReBench supports `-p` flag, which asks it to print an execution plan. Thus, to see what our `minimal` experiment would execute, one can run:  
+`rebench -p ast-vs-bc.conf`
 
 ## R-based Analysis Scripts
 
