@@ -208,9 +208,10 @@ The configuration files are in the YAML format and have three key elements, as c
 The command line options of ReBench can be accessed with the `--help` flag.
 
 The online documentation has the following relevant pages:
- - [Command line usage](https://rebench.readthedocs.io/en/latest/usage/)
- - [Configuration format](https://rebench.readthedocs.io/en/latest/config/)
- - [Glossary/Basic concepts](https://rebench.readthedocs.io/en/latest/concepts/)
+
+  - [Command line usage](https://rebench.readthedocs.io/en/latest/usage/)
+  - [Configuration format](https://rebench.readthedocs.io/en/latest/config/)
+  - [Glossary/Basic concepts](https://rebench.readthedocs.io/en/latest/concepts/)
 
 ## R-based Analysis Scripts
 
