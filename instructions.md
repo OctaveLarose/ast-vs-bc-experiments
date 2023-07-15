@@ -43,12 +43,18 @@ We provide both a complete setup to run all of our experiments, which may take 6
 
 1. Download the Docker image from [10.5281/zenodo.8147415](https://doi.org/10.5281/zenodo.8147415)
 2. Load the image into docker:  
-  `docker load < ast-vs-bc-docker.tar.gz`
+  `docker load < ast-vs-bc.tar.gz`
 3. Run the container, starting a bash shell:  
    `docker run -it --name ast-vs-bc ast-vs-bc:latest bash`.
 
 
 After executing `docker run` as given above, once one exits the bash shell, it can be accessed again with `docker start -i --attach ast-vs-bc`.
+
+Artifact download details:
+ - Primary Download: [10.5281/zenodo.8147415](https://doi.org/10.5281/zenodo.8147415)
+ - Temporary Backup URL: [https://www.cs.kent.ac.uk/people/staff/sm951/tmp/ast-vs-bc.tar.gz](https://www.cs.kent.ac.uk/people/staff/sm951/tmp/ast-vs-bc.tar.gz)
+ - MD5 Checksum: `684dfe92b814b53d06368ce008cf71be`
+ - SHA256 Checksum: `dba60138aad0fd329dca546e909a6b90a0b746f633395c619b3fad07e2e17356`
 
 ### Step 2: Reproduce all Figures of the Paper
 
