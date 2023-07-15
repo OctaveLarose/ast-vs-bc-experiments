@@ -1,4 +1,14 @@
-# AST vs. Bytecode: Interpreters in the Age of Meta-Compilation (Artifact)
+---
+title: "AST vs. Bytecode: Interpreters in the Age of Meta-Compilation (Artifact)"
+output: html_document
+header-includes: |
+  <style>
+  code {
+    background-color: #eee;
+    padding: 3px;
+  }
+  </style>
+---
 
 ## Introduction
 
@@ -31,7 +41,7 @@ We provide both a complete setup to run all of our experiments, which may take 6
 
 ### Step 1: Get the Artifact
 
-1. Download the Docker image **TODO**
+1. Download the Docker image from [10.5281/zenodo.8147415](https://doi.org/10.5281/zenodo.8147415)
 2. Load the image into docker:  
   `docker load < ast-vs-bc-docker.tar.gz`
 3. Run the container, starting a bash shell:  
