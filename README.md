@@ -57,6 +57,11 @@ systems. Together with possible engineering benefits, they should thus not be
 discounted so easily in favor of bytecode interpreters.
 
 
+## Artifact Instructions
+
+For the *Getting Started Guide* and step-by-step instructions to run all 
+experiments and add new ones, see [instructions.md](instructions.md).
+
 ## Build Instructions
 
 
