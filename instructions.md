@@ -3,8 +3,8 @@ title: "AST vs. Bytecode: Interpreters in the Age of Meta-Compilation (Artifact)
 output: html_document
 header-includes: |
   <style>
-  code {
-    background-color: #eee;
+  code, .sourceCode {
+    background-color: #f5f5f5;
     padding: 3px;
   }
   </style>
