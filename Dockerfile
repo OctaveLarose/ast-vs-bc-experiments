@@ -37,7 +37,13 @@ RUN cp -r jdk-20.0.1+9 /usr/lib/jvm/temurin-20-jdk-amd64
 SHELL ["/bin/bash", "-c"]
 RUN (curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash) && . ~/.nvm/nvm.sh && nvm install v17.9.0
 
-RUN cd /home/gitlab-runner && git clone https://github.com/OctaveLarose/ast-vs-bc-experiments/
+WORKDIR /home/gitlab-runner
+
+# Install R libraries from copied file to allow layer caching
+COPY awfy/report/bc-vs-ast/scripts/install-libraries.R /home/gitlab-runner/
+RUN Rscript install-libraries.R && rm install-libraries.R
+
+RUN git clone https://github.com/OctaveLarose/ast-vs-bc-experiments.git
 
 WORKDIR /home/gitlab-runner/ast-vs-bc-experiments
 RUN git submodule update --init
@@ -48,7 +54,6 @@ ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 ENV JAVA_TOOL_OPTIONS -Dfile.encoding=UTF8
 
-RUN cd awfy/report/bc-vs-ast/scripts && Rscript libraries.R
 RUN ./build/init_all_tsom_pysom_executors.sh "/home/gitlab-runner/.local"
 RUN rebench -d -v -f --setup-only ast-vs-bc.conf everything s:*:List
 RUN rm -f benchmark.data
