@@ -7,6 +7,9 @@ header-includes: |
     background-color: #f5f5f5;
     padding: 3px;
   }
+  .sourceCode .sourceCode {
+    padding: 0;
+  }
   </style>
 ---
 
@@ -91,17 +94,26 @@ To expand on the *Getting Started Guide*, in the following we will outline the s
 
 ### Full Run, Reproducing our Complete Data Set
 
-Since running the benchmarks takes a long time, we recommend to consider already adding the new experiment, as described in the next section. While this won't be relevant to reproduce our results and verify our claims, it avoids running everything twice.
-
 For the full run, we assume the *Getting Started Guide* was followed.
 
 1. Assuming the Docker image was used with the `docker run` command previously, one can start it again with `docker start -i --attach ast-vs-bc`
-2. A full run can now be started with:  
-   `rebench -f --without-building -c ast-vs-bc.conf everything`  
-   This will take 60+ hours to complete.
-    - For a shorter run of 5+ hours, one can restrict the iterations per benchmark to 5 iterations, each only executed once with the `--it 5 --in 1` flags:  
-   `rebench --it 5 --in 1 -f --without-building -c ast-vs-bc.conf everything`  
-   This will result in fewer data points being collected, and the JIT compilers may not reach peak performance.
+2. A full run can now be started with, which will take 65+ hours to complete:  
+```bash
+rebench --without-building ast-vs-bc.conf everything
+rebench --without-building ast-vs-bc.conf progr-rep-mem
+```
+
+  - For a shorter run of 5+ hours, one can restrict the iterations per benchmark to 5 iterations, each only executed once with the `--it 5 --in 1` flags and select the minimal configuration for the experiment for sec. 5.5.2 on memory representation:  
+
+```bash
+rebench --it 5 --in 1 --without-building ast-vs-bc.conf everything
+rebench --without-building ast-vs-bc.conf progr-rep-mem-minimal
+```
+
+  - This will result in fewer data points being collected, and the JIT compilers may not reach peak performance.
+    For the experiment for sec. 5.2.2, we will only collect fewer increments,
+    but the results should still be fairly similar.
+
 3. Once finished, navigate to `awfy/report/bc-vs-ast/`
 4. Run `./render-all.sh` to produce HTML with all plots in the paper. This will process the `.Rmd` files, which mix R and markdown to compute the statistics.
 5. To copy the resulting `.html` files out of the container, run:  
@@ -178,10 +190,11 @@ experiments:
 ```
 
 4. Run the new experiment using:  
-  `rebench --it 5 --in 1 -f --without-building -c ast-vs-bc.conf everything`
-   - **Note**, this will delete previously collected data because of the `-c` argument. This is to avoid issues with the analysis scripts.
-   - Note further, this will again take a long time, likely 5.5+ hours
-   - you may also run the full experiment using `rebench -f --without-building -c ast-vs-bc.conf everything`. However, it will take around 60+ hours. 
+  `rebench --it 5 --in 1 --without-building ast-vs-bc.conf everything`
+   - **Note**, this will simply add additional data to the benchmark.data file, a tab-separated columnar data format, i.e., a CSV file. Experiments previously executed will not be reexecuted, except if some data is missing.
+   - If the `everything` experiment was executed previously, this
+     should only take half an hour or so.
+   - You may also run the full experiment using `rebench --without-building -c ast-vs-bc.conf everything`. However, it will take about 10 times as long.
 
 4. Since an optimization was added, Fig. 7 and Fig. 8 (Section 5.6) need to be generated. 
     - going to `awfy/report/bc-vs-ast/`
