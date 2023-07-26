@@ -10,11 +10,20 @@ init_baselines() {
 
     pushd TruffleSOM 
     git checkout 64ffec11a782d729ecfdf9c50c3b07f99e96349f && ant libs jvmci-libs
+    pushd core-lib
+    git fetch --all && git checkout -b fixed-unittest-benchmark 80158fbaab718188fd4836cc7f8fb087418213da
+    # generate benchmark files
+    pushd Examples/Benchmarks/TestSuite
+    ./duplicate-tests.sh
+    popd
+    popd
     popd
 
     git clone https://github.com/OctaveLarose/PySOM.git
     pushd PySOM
-    git checkout c98d42786fc5f769dbe9e508eb7af4b54a33a2c8  && git submodule update --init --recursive
+    git checkout c98d42786fc5f769dbe9e508eb7af4b54a33a2c8
+    rm -rf core-lib && ln -sf $3/TruffleSOM/core-lib
+    rm -rf are-we-fast-yet && ln -sf $3/TruffleSOM/are-we-fast-yet
     ln -s $1/pypy2.7-v7.3.9-src pypy
     popd 
 }
@@ -31,8 +40,8 @@ init_tsom() {
 init_pysom() {
     git -C PySOM worktree add -b $1 ../PySOM-$1 $2
     pushd PySOM-$1
-    rm -rf core-lib && ln -sf $3/PySOM/core-lib
-    rm -rf are-we-fast-yet && ln -sf $3/PySOM/are-we-fast-yet
+    rm -rf core-lib && ln -sf $3/TruffleSOM/core-lib
+    rm -rf are-we-fast-yet && ln -sf $3/TruffleSOM/are-we-fast-yet
     rm -rf pypy && ln -s $3/pypy2.7-v7.3.9-src pypy
     popd
 }
