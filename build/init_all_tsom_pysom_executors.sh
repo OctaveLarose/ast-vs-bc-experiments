@@ -9,7 +9,9 @@ init_baselines() {
     export PATH=/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
 
     pushd TruffleSOM 
-    git checkout 64ffec11a782d729ecfdf9c50c3b07f99e96349f && ant libs jvmci-libs
+    git checkout 64ffec11a782d729ecfdf9c50c3b07f99e96349f
+    patch < /home/gitlab-runner/ast-vs-bc-experiments/fix.build.xml
+    ant libs jvmci-libs
     pushd core-lib
     git fetch --all && git checkout -b fixed-unittest-benchmark 80158fbaab718188fd4836cc7f8fb087418213da
     # generate benchmark files
@@ -31,6 +33,7 @@ init_baselines() {
 init_tsom() {
     git -C TruffleSOM worktree add -b $1 ../TruffleSOM-$1 $2
     pushd TruffleSOM-$1
+    patch < /home/gitlab-runner/ast-vs-bc-experiments/fix.build.xml
     rm -rf libs && ln -sf $3/TruffleSOM/libs
     rm -rf core-lib && ln -sf $3/TruffleSOM/core-lib
     rm -rf are-we-fast-yet && ln -sf $3/TruffleSOM/are-we-fast-yet

@@ -1,0 +1,15 @@
+diff --git a/build.xml b/build.xml
+index d611f165..8084ed3c 100644
+--- a/build.xml
++++ b/build.xml
+@@ -437,8 +437,8 @@ Native Image Targets
+               <arg line="trufflesom.vm.Universe" />
+               <arg line="@{out}" />
+             </exec>
+-            <move file="@{dir}/@{out}" todir="${src.dir}/../" />
+-            <move file="${src.dir}/../@{out}" tofile="${src.dir}/../@{out-interp}" if:true="${no.jit}" />
++            <move file="@{dir}/@{out}" tofile="${src.dir}/../@{out}"    unless:true="${no.jit}" />
++            <move file="@{dir}/@{out}" tofile="${src.dir}/../@{out-interp}" if:true="${no.jit}" />
+         </sequential>
+     </macrodef>
+
