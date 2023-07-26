@@ -22,8 +22,8 @@ init_baselines() {
     git clone https://github.com/OctaveLarose/PySOM.git
     pushd PySOM
     git checkout c98d42786fc5f769dbe9e508eb7af4b54a33a2c8
-    rm -rf core-lib && ln -sf $3/TruffleSOM/core-lib
-    rm -rf are-we-fast-yet && ln -sf $3/TruffleSOM/are-we-fast-yet
+    rm -rf core-lib && ln -sf $1/TruffleSOM/core-lib
+    rm -rf are-we-fast-yet && ln -sf $1/TruffleSOM/are-we-fast-yet
     ln -s $1/pypy2.7-v7.3.9-src pypy
     popd 
 }
@@ -50,7 +50,7 @@ init_pysom() {
 [ -d $1 ] || mkdir -p $1
 pushd $1
 
-init_baselines
+init_baselines $1
 
 init_tsom "no-lower-prims" "86c4856f1392bdda76162d97d19a2d8116d3631b" $1
 init_tsom "no-inline-caching" "60ae3e508e68e87d358222102c3b2a8c67de11d0" $1
