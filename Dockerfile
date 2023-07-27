@@ -12,7 +12,7 @@ RUN apt update && apt-get install -y sudo python python3-pip git curl wget ant l
       libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev \
       x11-common openjdk-17-jdk pkg-config libffi-dev libfontconfig1-dev pandoc gfortran \
       time
-RUN pip install git+https://github.com/smarr/rebench.git
+RUN pip install git+https://github.com/smarr/rebench.git@c6b7149df4c8ba56764581ac02fb2adccdb3f864
 
 # Installing R.
 RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo gpg --dearmor -o /usr/share/keyrings/r-project.gpg
