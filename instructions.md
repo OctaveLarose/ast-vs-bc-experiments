@@ -97,22 +97,23 @@ To expand on the *Getting Started Guide*, in the following we will outline the s
 For the full run, we assume the *Getting Started Guide* was followed.
 
 1. Assuming the Docker image was used with the `docker run` command previously, one can start it again with `docker start -i --attach ast-vs-bc`
-2. A full run can now be started with, which will take 65+ hours to complete:  
+2. A full run can now be started with, which will take 70+ hours to complete:  
 ```bash
 rebench --without-building ast-vs-bc.conf everything
+rebench --without-building ast-vs-bc.conf mem-usage
 rebench --without-building ast-vs-bc.conf progr-rep-mem
 ```
 
-  - For a shorter run of 5+ hours, one can restrict the iterations per benchmark to 5 iterations, each only executed once with the `--it 5 --in 1` flags and select the minimal configuration for the experiment for sec. 5.5.2 on memory representation:  
+  - For a shorter run of 6+ hours, one can restrict the iterations per benchmark to 5 iterations, each only executed once with the `--it 5 --in 1` flags and select the minimal configuration for the experiments for sec. 5.5.1 and 5.5.2 on memory representation:  
 
 ```bash
 rebench --it 5 --in 1 --without-building ast-vs-bc.conf everything
+rebench --without-building ast-vs-bc.conf mem-usage-minimal
 rebench --without-building ast-vs-bc.conf progr-rep-mem-minimal
 ```
 
-  - This will result in fewer data points being collected, and the JIT compilers may not reach peak performance.
-    For the experiment for sec. 5.2.2, we will only collect fewer increments,
-    but the results should still be fairly similar.
+  - This will result in a reduced data set being collected, and the JIT compilers may not reach peak performance, but the results should still be
+    fairly similar based on our testing.
 
 3. Once finished, navigate to `awfy/report/bc-vs-ast/`
 4. Run `./render-all.sh` to produce HTML with all plots in the paper. This will process the `.Rmd` files, which mix R and markdown to compute the statistics.
